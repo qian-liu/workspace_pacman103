@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: icann2015.aux
+The style file: ieeetr.bst
+Database file #1: refs.bib
+Warning--empty journal in furber2014spinnaker
+You've used 27 entries,
+            1876 wiz_defined-function locations,
+            653 strings with 8973 characters,
+and the built_in function-call counts, 9101 in all, are:
+= -- 945
+> -- 310
+< -- 0
++ -- 114
+- -- 87
+* -- 653
+:= -- 1219
+add.period$ -- 27
+call.type$ -- 27
+change.case$ -- 27
+chr.to.int$ -- 0
+cite$ -- 28
+duplicate$ -- 473
+empty$ -- 839
+format.name$ -- 87
+if$ -- 2236
+int.to.chr$ -- 0
+int.to.str$ -- 27
+missing$ -- 27
+newline$ -- 84
+num.names$ -- 27
+pop$ -- 80
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 363
+stack$ -- 0
+substring$ -- 787
+swap$ -- 224
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 1
+while$ -- 100
+width$ -- 29
+write$ -- 279
+(There was 1 warning)
