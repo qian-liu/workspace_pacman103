@@ -1,0 +1,66 @@
+#!/usr/bin/python
+"""
+Author: Qian Liu, SpiNNaker Group, The University of Manchester
+This program provides a gesture recognition colvolutional neural network. 
+
+This test requires:
+ - an FPGA/robot MC translating the AER sensor events to MC packets (see the application note by Luis Plana at http://solem.cs.man.ac.uk/documentation/spinn-app-8.pdf)
+ - the visualiser in tools/visualiser
+
+"""
+
+
+import pyNN.spiNNaker as p
+import numpy, pylab, random, sys
+import time
+import datetime as dt
+from math import *
+# import defined retina Functions from another python file
+from retinaFunc import *
+
+#Define Simulation Paras
+runtime = 10000
+num_per_core = 256
+
+#INIT pacman103
+p.setup(timestep=1.0, min_delay = 1.0, max_delay = 32.0)
+p.set_number_of_neurons_per_core('IF_curr_exp', num_per_core)      # this will set one population per core
+
+#external stuff: population requiremenets
+connected_chip_coords = {'x': 0, 'y': 0}
+virtual_chip_coords = {'x': 0, 'y': 5}
+link = 4
+
+# ------------------1st Layer on SpiNNaker-----------------------------------
+# Retina 128 * 128 --> Input 128 * 128
+
+#Define network paras
+retina_size = 128 # retina from the FPGA
+input_size = 128 # Fisrt layer on SpiNNaker to combine both ON and OFF inputs
+input_weights = 5.75
+cell_input = { 'tau_m' : 64, 'v_init'  : -95, 'i_offset'  : 0,
+    'v_rest'    : -95,  'v_reset'    : -95, 'v_thresh'   : -40,
+    'tau_syn_E' : 15,   'tau_syn_I'  : 15,  'tau_refrac' : 1}
+
+spikeTrains, source_Num = load_inputSpikes('single.mat', 'retinaPop', retina_size)
+
+input_pop = p.Population(input_size * input_size,         # size
+                       p.IF_curr_exp,   # Neuron Type
+                       cell_input,   # Neuron Parameters
+                       label="Input") # Label
+retina_pop = []
+for i in range(1):
+    pop = p.Population(retina_size * retina_size, p.SpikeSourceArray, {'spike_times': spikeTrains[i] }, label='retina_pop')
+    retina_pop.append( pop )
+    p.Projection(retina_pop[i], input_pop, p.OneToOneConnector(weights=input_weights, delays=1), label='input projection')
+
+input_pop.record()
+print 'Simulation started... on time: {}\n'.format(dt.datetime.now())
+p.run(runtime)
+
+# write spikes out to files
+filename = 'results/input.spikes'
+input_pop.printSpikes(filename)
+
+p.end()
+print 'Simulation end! on time: {}\n'.format(dt.datetime.now())
