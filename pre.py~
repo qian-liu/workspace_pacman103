@@ -42,13 +42,14 @@ cell_input = { 'tau_m' : 64, 'v_init'  : -95, 'i_offset'  : 0,
     'v_rest'    : -95,  'v_reset'    : -95, 'v_thresh'   : -40,
     'tau_syn_E' : 15,   'tau_syn_I'  : 15,  'tau_refrac' : 1}
 
-spikeTrains, source_Num = load_inputSpikes('single.mat', 'retinaPop', retina_size)
+spikeTrains, source_Num = load_inputSpikes('recorded_data_for_spinnaker/single.mat', 'retinaPop', retina_size)
 
 input_pop = p.Population(input_size * input_size,         # size
                        p.IF_curr_exp,   # Neuron Type
                        cell_input,   # Neuron Parameters
                        label="Input") # Label
 retina_pop = []
+#for i in range(source_Num):
 for i in range(1):
     pop = p.Population(retina_size * retina_size, p.SpikeSourceArray, {'spike_times': spikeTrains[i] }, label='retina_pop')
     retina_pop.append( pop )

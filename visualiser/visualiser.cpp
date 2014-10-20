@@ -354,6 +354,25 @@ int SPINN5_new[8][8]={
 -1, -1, 32, 33, 34, 35, 46, 45,
 -1, -1, -1, 40, 41, 42, 43, 44
 };
+
+int VIRTUAL_CHIP[48] = {
+0, 1, 2, 3, 4,
+-1, -1, -1, -1, -1, -1,
+-1, -1, -1, -1, -1, -1,
+-1, -1, -1, -1, -1, -1,
+-1, -1, -1, -1, -1, -1,
+-1, -1, -1, -1, -1, -1,
+-1, -1, -1, -1, -1, -1,
+-1, -1, -1, -1, -1, -1, -1
+};
+
+int OFFSET_NEURON_ID[5][16] = {
+-1, 0, 255, 510, 765, 1020, 1275, 1530, 1785, 2040, 2295, 2550, 2805, 3060, 3315, 3570,
+3825, 4080, 4335, 4590, 4845, 5100, 5355, 5610, 5865, 6120, 6375, 6630, 6885, 7140, 7395, 7650,
+7905, 8160, 8415, 8670, 8925, 9180, 9435, 9690, 9945, 10200, 10455, 10710, 10965, 11220, 11475, 11730,
+11985, 12240, 12495, 12750, 13005, 13260, 13515, 13770, 14025, 14280, 14535, 14790, 15045, 15300, 15555, 15810, 
+16065, 16320, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
+};
 //end of variables for sdp spinnaker packet receiver - some could be local really - but with pthread they may need to be more visible
 
 
@@ -599,15 +618,18 @@ void* input_thread_SDP (void *ptr)
                     int virtual_neuronID = 0;
 		            if (BOARD==5)
 		            {
-		                virtual_neuronID = (SPINN5_new[x_chip][y_chip] * 16 + coreID) * N_PER_PROC + neuronID + ID_OFFSET;
-		                neuron_id = virtual_neuronID % (XDIMENSIONS*YDIMENSIONS);
-		                //neuron_id = virtual_neuronID & (XDIMENSIONS*YDIMENSIONS-1);
+		                //virtual_neuronID = (SPINN5_new[x_chip][y_chip] * 16 + coreID) * N_PER_PROC + neuronID + ID_OFFSET;
+		                //neuron_id = virtual_neuronID % (XDIMENSIONS*YDIMENSIONS);
+		                int chip_num = SPINN5_new[x_chip][y_chip];
+		                int virtual_chip = VIRTUAL_CHIP[chip_num];
+		                neuron_id = OFFSET_NEURON_ID[virtual_chip][coreID - 1] + neuronID;
 		                
-		                //printf("spinn5=%d\n",SPINN5[x_chip][y_chip]);
+
 		            } 
 	                ushort x_coord_neuron=neuron_id % XDIMENSIONS;                // X coordinate is lower 4 bits [0:3]
 	                ushort y_coord_neuron=neuron_id / YDIMENSIONS;                // Y coordinate is bits [11:4] ??
-                    printf("virtual=%d,neuronID=%d, x=%d,y=%d,XDIMENSIONS=%d,YDIMENSIONS=%d\n", virtual_neuronID, neuron_id, x_coord_neuron, y_coord_neuron, XDIMENSIONS,YDIMENSIONS);
+                    //printf("virtual=%d,neuronID=%d, x=%d,y=%d,XDIMENSIONS=%d,YDIMENSIONS=%d\n", virtual_neuronID, neuron_id, x_coord_neuron, y_coord_neuron, XDIMENSIONS,YDIMENSIONS);
+                    printf("neuronID=%d, x=%d,y=%d,XDIMENSIONS=%d,YDIMENSIONS=%d\n", neuron_id, x_coord_neuron, y_coord_neuron, XDIMENSIONS,YDIMENSIONS);
 	                uint pixelid = neuron_id;                           // indexID
 
 		            immediate_data[pixelid]+=1;//*MAXFRAMERATE;             // store 1st pixel ID

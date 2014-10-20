@@ -1,6 +1,6 @@
 import numpy, pylab, random, sys
 from retinaFunc import *    
-filename = 'results/test.spikes'
+filename = 'results/input.spikes'
 pylab.figure()
 spikes = load_recordedFile(filename)
 pylab.plot([i[0] for i in spikes], [i[1] for i in spikes], ".") 
