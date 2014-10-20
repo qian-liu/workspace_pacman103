@@ -1,0 +1,142 @@
+\begin{thebibliography}{10}
+
+\bibitem{wysoski2008fast}
+S.~G. Wysoski, L.~Benuskova, and N.~Kasabov, ``Fast and adaptive network of
+  spiking neurons for multi-view visual pattern recognition,'' {\em
+  Neurocomputing}, vol.~71, no.~13, pp.~2563--2575, 2008.
+
+\bibitem{canny1986computational}
+J.~Canny, ``A computational approach to edge detection,'' {\em Pattern Analysis
+  and Machine Intelligence, IEEE Transactions on}, no.~6, pp.~679--698, 1986.
+
+\bibitem{toygar2004multiple}
+{\"O}.~Toygar and A.~Acan, ``Multiple classifier implementation of a
+  divide-and-conquer approach using appearance-based statistical methods for
+  face recognition,'' {\em Pattern Recognition Letters}, vol.~25, no.~12,
+  pp.~1421--1430, 2004.
+
+\bibitem{wei2006robust}
+S.-D. Wei and S.-H. Lai, ``Robust and efficient image alignment based on
+  relative gradient matching,'' {\em Image Processing, IEEE Transactions on},
+  vol.~15, no.~10, pp.~2936--2943, 2006.
+
+\bibitem{lowe2004distinctive}
+D.~G. Lowe, ``Distinctive image features from scale-invariant keypoints,'' {\em
+  International journal of computer vision}, vol.~60, no.~2, pp.~91--110, 2004.
+
+\bibitem{bay2008speeded}
+H.~Bay, A.~Ess, T.~Tuytelaars, and L.~Van~Gool, ``Speeded-up robust features
+  (surf),'' {\em Computer vision and image understanding}, vol.~110, no.~3,
+  pp.~346--359, 2008.
+
+\bibitem{riesenhuber1999hierarchical}
+M.~Riesenhuber and T.~Poggio, ``Hierarchical models of object recognition in
+  cortex,'' {\em Nature neuroscience}, vol.~2, no.~11, pp.~1019--1025, 1999.
+
+\bibitem{hopfield1995pattern}
+J.~J. Hopfield, ``Pattern recognition computation using action potential timing
+  for stimulus representation,'' {\em Nature}, vol.~376, no.~6535, pp.~33--36,
+  1995.
+
+\bibitem{natschlager1998spatial}
+T.~Natschl{\"a}ger and B.~Ruf, ``Spatial and temporal pattern analysis via
+  spiking neurons,'' {\em Network: Computation in Neural Systems}, vol.~9,
+  no.~3, pp.~319--332, 1998.
+
+\bibitem{maass1997networks}
+W.~Maass, ``Networks of spiking neurons: the third generation of neural network
+  models,'' {\em Neural networks}, vol.~10, no.~9, pp.~1659--1671, 1997.
+
+\bibitem{gupta2007character}
+A.~Gupta and L.~N. Long, ``Character recognition using spiking neural
+  networks,'' in {\em Neural Networks, 2007. IJCNN 2007. International Joint
+  Conference on}, pp.~53--58, IEEE, 2007.
+
+\bibitem{6467270}
+J.~H. Lee, P.~Park, C.-W. Shin, H.~Ryu, B.~C. Kang, and T.~Delbruck,
+  ``Touchless hand gesture ui with instantaneous responses,'' in {\em Image
+  Processing (ICIP), 2012 19th IEEE International Conference on},
+  pp.~1957--1960, Sept 2012.
+
+\bibitem{camunas2012event}
+L.~Camunas-Mesa, C.~Zamarreno-Ramos, A.~Linares-Barranco, A.~J. Acosta-Jimenez,
+  T.~Serrano-Gotarredona, and B.~Linares-Barranco, ``An event-driven
+  multi-kernel convolution processor module for event-driven vision sensors,''
+  {\em Solid-State Circuits, IEEE Journal of}, vol.~47, no.~2, pp.~504--517,
+  2012.
+
+\bibitem{delorme2001networks}
+A.~Delorme, L.~Perrinet, and S.~J. Thorpe, ``Networks of integrate-and-fire
+  neurons using rank order coding b: spike timing dependent plasticity and
+  emergence of orientation selectivity,'' {\em Neurocomputing}, vol.~38,
+  pp.~539--545, 2001.
+
+\bibitem{eliasmith2011nengo}
+C.~Eliasmith and T.~C. Stewart, ``Nengo and the neural engineering framework:
+  connecting cognitive theory to neuroscience,'' in {\em Proceedings of the
+  33rd annual meeting of the cognitive science society}, pp.~1--2, 2011.
+
+\bibitem{eliasmith2012large}
+C.~Eliasmith, T.~C. Stewart, X.~Choo, T.~Bekolay, T.~DeWolf, Y.~Tang, and
+  D.~Rasmussen, ``A large-scale model of the functioning brain,'' {\em
+  science}, vol.~338, no.~6111, pp.~1202--1205, 2012.
+
+\bibitem{naylor2013managing}
+M.~Naylor, P.~J. Fox, A.~T. Markettos, and S.~W. Moore, ``Managing the fpga
+  memory wall: Custom computing or vector processing?,'' in {\em Field
+  Programmable Logic and Applications (FPL), 2013 23rd International Conference
+  on}, pp.~1--6, IEEE, 2013.
+
+\bibitem{o2013real}
+P.~O'Connor, D.~Neil, S.-C. Liu, T.~Delbruck, and M.~Pfeiffer, ``Real-time
+  classification and sensor fusion with a spiking deep belief network,'' {\em
+  Frontiers in neuroscience}, vol.~7, 2013.
+
+\bibitem{elmezain2009hidden}
+M.~Elmezain, A.~Al-Hamadi, J.~Appenrodt, and B.~Michaelis, ``A hidden markov
+  model-based isolated and meaningful hand gesture recognition,'' {\em
+  International Journal of Electrical, Computer, and Systems Engineering},
+  vol.~3, no.~3, pp.~156--163, 2009.
+
+\bibitem{lenero20113}
+J.~A. Le{\~n}ero-Bardallo, T.~Serrano-Gotarredona, and B.~Linares-Barranco, ``A
+  3.6 s latency asynchronous frame-free event-driven dynamic-vision-sensor,''
+  {\em Solid-State Circuits, IEEE Journal of}, vol.~46, no.~6, pp.~1443--1455,
+  2011.
+
+\bibitem{furber2014spinnaker}
+S.~B. Furber, F.~Galluppi, S.~Temple, and L.~A. Plana, ``The spinnaker
+  project,'' 2014.
+
+\bibitem{galluppi2012real}
+F.~Galluppi, K.~Brohan, S.~Davidson, T.~Serrano-Gotarredona, J.-A.~P. Carrasco,
+  B.~Linares-Barranco, and S.~Furber, ``A real-time, event-driven neuromorphic
+  system for goal-directed attentional selection,'' in {\em Neural Information
+  Processing}, pp.~226--233, Springer, 2012.
+
+\bibitem{delbruck2008frame}
+T.~Delbruck, ``Frame-free dynamic digital vision,'' in {\em Proceedings of
+  Intl. Symp. on Secure-Life Electronics, Advanced Electronics for Quality Life
+  and Society}, pp.~21--26, 2008.
+
+\bibitem{6252490}
+C.~Patterson, F.~Galluppi, A.~Rast, and S.~Furber, ``Visualising large-scale
+  neural network models in real-time,'' in {\em Neural Networks (IJCNN), The
+  2012 International Joint Conference on}, pp.~1--8, 2012.
+
+\bibitem{lecun1998gradient}
+Y.~LeCun, L.~Bottou, Y.~Bengio, and P.~Haffner, ``Gradient-based learning
+  applied to document recognition,'' {\em Proceedings of the IEEE}, vol.~86,
+  no.~11, pp.~2278--2324, 1998.
+
+\bibitem{lazzaro1995multi}
+J.~Lazzaro and J.~Wawrzynek, ``A multi-sender asynchronous extension to the aer
+  protocol,'' in {\em Advanced Research in VLSI, Conference on}, pp.~158--158,
+  IEEE Computer Society, 1995.
+
+\bibitem{la2008response}
+G.~La~Camera, M.~Giugliano, W.~Senn, and S.~Fusi, ``The response of cortical
+  neurons to in vivo-like input current: theory and experiment,'' {\em
+  Biological cybernetics}, vol.~99, no.~4-5, pp.~279--301, 2008.
+
+\end{thebibliography}
