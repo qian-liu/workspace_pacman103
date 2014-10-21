@@ -310,7 +310,6 @@ RETINA2 =
   ROTATEFLIP=1;
   BOARD=5;
   DYNAMICSCALE=0;
-  POPULATION_CORES= "cores.conf";
 };
 
 

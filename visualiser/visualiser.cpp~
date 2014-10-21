@@ -627,7 +627,8 @@ void* input_thread_SDP (void *ptr)
 		            
 	                    ushort x_coord_neuron=neuron_id % XDIMENSIONS;                // X coordinate is lower 4 bits [0:3]
 	                    ushort y_coord_neuron=neuron_id / YDIMENSIONS;                // Y coordinate is bits [11:4] ??
-                        //printf("neuronID=%d, x=%d,y=%d,XDIMENSIONS=%d,YDIMENSIONS=%d\n", neuron_id, x_coord_neuron, y_coord_neuron, XDIMENSIONS,YDIMENSIONS);
+                        //printf("virtual=%d,neuronID=%d, x=%d,y=%d,XDIMENSIONS=%d,YDIMENSIONS=%d\n", virtual_neuronID, neuron_id, x_coord_neuron, y_coord_neuron, XDIMENSIONS,YDIMENSIONS);
+                        printf("neuronID=%d, x=%d,y=%d,XDIMENSIONS=%d,YDIMENSIONS=%d\n", neuron_id, x_coord_neuron, y_coord_neuron, XDIMENSIONS,YDIMENSIONS);
 	                    uint pixelid = neuron_id;                           // indexID
 
 		                immediate_data[pixelid]+=1;//*MAXFRAMERATE;             // store 1st pixel ID
