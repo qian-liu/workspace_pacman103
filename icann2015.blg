@@ -4,45 +4,45 @@ The top-level auxiliary file: icann2015.aux
 The style file: ieeetr.bst
 Database file #1: refs.bib
 Warning--empty journal in furber2014spinnaker
-You've used 27 entries,
+You've used 29 entries,
             1876 wiz_defined-function locations,
-            653 strings with 8973 characters,
-and the built_in function-call counts, 9101 in all, are:
-= -- 945
-> -- 310
+            666 strings with 9199 characters,
+and the built_in function-call counts, 9563 in all, are:
+= -- 996
+> -- 318
 < -- 0
-+ -- 114
-- -- 87
-* -- 653
-:= -- 1219
-add.period$ -- 27
-call.type$ -- 27
-change.case$ -- 27
++ -- 118
+- -- 89
+* -- 684
+:= -- 1284
+add.period$ -- 29
+call.type$ -- 29
+change.case$ -- 29
 chr.to.int$ -- 0
-cite$ -- 28
-duplicate$ -- 473
-empty$ -- 839
-format.name$ -- 87
-if$ -- 2236
+cite$ -- 30
+duplicate$ -- 501
+empty$ -- 885
+format.name$ -- 89
+if$ -- 2353
 int.to.chr$ -- 0
-int.to.str$ -- 27
-missing$ -- 27
-newline$ -- 84
-num.names$ -- 27
-pop$ -- 80
+int.to.str$ -- 29
+missing$ -- 29
+newline$ -- 90
+num.names$ -- 29
+pop$ -- 83
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 363
+skip$ -- 381
 stack$ -- 0
-substring$ -- 787
-swap$ -- 224
+substring$ -- 812
+swap$ -- 236
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 100
-width$ -- 29
-write$ -- 279
+while$ -- 106
+width$ -- 31
+write$ -- 301
 (There was 1 warning)
