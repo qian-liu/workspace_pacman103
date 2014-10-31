@@ -621,18 +621,26 @@ void* input_thread_SDP (void *ptr)
 		                //neuron_id = OFFSET_NEURON_ID[virtual_chip][coreID - 1] + neuronID;
                         printf("%d-%d-%d-%d\n",x_chip,y_chip,coreID,neuronID);
 		                int chip_num = SPINN5_new[x_chip][y_chip];
-		                int virtual_chip = POPULATION_CHIP[chip_num];
-		                neuron_id = POPULATION_CORE[virtual_chip][coreID - 1] + neuronID;
+		                if (chip_num < 0)
+		                    printf("Invalide chip number, please check the board configuration.\n")
+		                else
+		                {
+		                    int virtual_chip = POPULATION_CHIP[chip_num];
+		                    if ( virtual_chip < 0)
+		                        printf("Invalide packets for this population, only one population recored in real-time.\n")
+		                    else{
+		                        neuron_id = POPULATION_CORE[virtual_chip][coreID - 1] + neuronID;
 
-		            
-	                    ushort x_coord_neuron=neuron_id % XDIMENSIONS;                // X coordinate is lower 4 bits [0:3]
-	                    ushort y_coord_neuron=neuron_id / YDIMENSIONS;                // Y coordinate is bits [11:4] ??
-                        //printf("virtual=%d,neuronID=%d, x=%d,y=%d,XDIMENSIONS=%d,YDIMENSIONS=%d\n", virtual_neuronID, neuron_id, x_coord_neuron, y_coord_neuron, XDIMENSIONS,YDIMENSIONS);
-                        printf("neuronID=%d, x=%d,y=%d,XDIMENSIONS=%d,YDIMENSIONS=%d\n", neuron_id, x_coord_neuron, y_coord_neuron, XDIMENSIONS,YDIMENSIONS);
-	                    uint pixelid = neuron_id;                           // indexID
+		                    
+	                            ushort x_coord_neuron=neuron_id % XDIMENSIONS;                // X coordinate is lower 4 bits [0:3]
+	                            ushort y_coord_neuron=neuron_id / YDIMENSIONS;                // Y coordinate is bits [11:4] ??
+                                //printf("neuronID=%d, x=%d,y=%d,XDIMENSIONS=%d,YDIMENSIONS=%d\n", neuron_id, x_coord_neuron, y_coord_neuron, XDIMENSIONS,YDIMENSIONS);
+	                            uint pixelid = neuron_id;                           // indexID
 
-		                immediate_data[pixelid]+=1;//*MAXFRAMERATE;             // store 1st pixel ID
-	                    history_data[updateline][pixelid]=x_coord_neuron;  // replace any data here already
+		                        immediate_data[pixelid]+=1;//*MAXFRAMERATE;             // store 1st pixel ID
+	                            history_data[updateline][pixelid]=x_coord_neuron;  // replace any data here already
+	                        }
+	                   }
 		            }
 		            //immediate_data[pixelid]=x_coord_neuron;             // store 1st pixel ID
 	                //history_data[updateline][pixelid]=x_coord_neuron;  // replace any data here already

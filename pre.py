@@ -56,12 +56,14 @@ for i in range(1):
     p.Projection(retina_pop[i], input_pop, p.OneToOneConnector(weights=input_weights, delays=1), label='input projection')
 
 input_pop.record()
+retina_pop[0].record()
 print 'Simulation started... on time: {}\n'.format(dt.datetime.now())
 p.run(runtime)
 
 # write spikes out to files
-#filename = 'results/input.spikes'
-#input_pop.printSpikes(filename)
-
+filename = 'results/input.spikes'
+input_pop.printSpikes(filename)
+filename = 'results/retina.spikes'
+retina_pop[0].printSpikes(filename)
 p.end()
 print 'Simulation end! on time: {}\n'.format(dt.datetime.now())
