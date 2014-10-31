@@ -139,4 +139,13 @@ G.~La~Camera, M.~Giugliano, W.~Senn, and S.~Fusi, ``The response of cortical
   neurons to in vivo-like input current: theory and experiment,'' {\em
   Biological cybernetics}, vol.~99, no.~4-5, pp.~279--301, 2008.
 
+\bibitem{burkitt2006review}
+A.~N. Burkitt, ``A review of the integrate-and-fire neuron model: I.
+  homogeneous synaptic input,'' {\em Biological cybernetics}, vol.~95, no.~1,
+  pp.~1--19, 2006.
+
+\bibitem{siegert1951first}
+A.~J. Siegert, ``On the first passage time probability problem,'' {\em Physical
+  Review}, vol.~81, no.~4, p.~617, 1951.
+
 \end{thebibliography}

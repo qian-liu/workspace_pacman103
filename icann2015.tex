@@ -6,9 +6,11 @@
 \usepackage{color}
 \usepackage{multirow}
 \usepackage{makecell}
+\usepackage{mathptmx}
+\usepackage{amsmath}
 %define some own functions
 \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}} 
-
+\def\D{\mathrm{d}}
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
 \pagestyle{empty}
@@ -72,7 +74,8 @@ In the terms of gesture recognition, the hidden Markov model (HMM) has shown its
 However, with their instinctive temporal processing, SNNs have the potential to deliver dynamic gesture recognition.
 
 \section{Neuromorphic Platform}
-\textcolor{blue}{
+%\textcolor{blue}
+\textcolor{black}{
 This section presents some details of the two hardware components, the Address-Event Representation (AER) silicon retina~\cite{lenero20113} and the SpiNNaker system~\cite{furber2014spinnaker} which is a massive parallel computing platform aimed at real-time simulation of spiking neural networks (SNNs). 
 Figure~\ref{fig:SysOverView} shows the combined hand posture recognition system; 
 the AEREAR2 silicon retina connected to the SpiNNaker 48-node board via a Spartan 6 FPGA board~\cite{galluppi2012real}.%, which was also applied to a sound localisation system.
@@ -102,7 +105,8 @@ The host sets up the runtime parameters off-line and downloads the network model
 \end{figure}
 
 \subsection{Silicon Retina}
-\textcolor{blue}{
+%\textcolor{blue}{
+\textcolor{black}{
 The visual front-end is constituted by a Dynamic Video Sensor (DVS) silicon retina, an asynchronous sensor which provides spike events encod-
 ing the address of pixels undergoing a contrast change\cite{wei2006robust}. 
 This approach lies in opposition to the more traditional method of sending entire frames to provide fast (3 $\mu$s latency) data-driven contrast detection at a wide range of illuminations. 
@@ -193,13 +197,13 @@ Only the real parts of the Gabor filters (see Figure~\ref{fig:gabor}) are used a
 
 \begin{equation}
 \begin{array}{l}
-Real Parts = \exp (\frac{-x^{'2}+y^{'2}}{2\sigma ^{2}})\cos (2\pi\frac{{x}'}{\lambda })
+\mathit{Real Parts} = \exp \left(\frac{-x^{'2}+y^{'2}}{2\sigma ^{2}}\right)\cos \left(2\pi\frac{{x}'}{\lambda }\right)
 \\
 \\
-Imaginary Parts = \exp (\frac{-x^{'2}+y^{'2}}{2\sigma ^{2}})\sin (2\pi\frac{{x}'}{\lambda })
+\mathit{Imaginary Parts} = \exp \left(\frac{-x^{'2}+y^{'2}}{2\sigma ^{2}}\right)\sin \left(2\pi\frac{{x}'}{\lambda }\right)
 \\
 \\
-where:
+\mathrm{where:}
 \\
 \\
 {x}'=x\cos (\theta ) + y\sin (\theta)
@@ -244,7 +248,8 @@ A trained static 3-layered MLP is attached to classify the gesture.
 
 Since the size of the input image of the MLP training is fixed and the position is centered, tracking plays a very important role to spot the valid region. 
 Tracking is naturally embedded in the pooling layer of the convolutional network, for the active neurons directly point out the lively receptive field. 
-\textcolor{red}{However, to extract only the active region to the next layer is still need to investigate.}
+%\textcolor{red}
+\textcolor{black}{However, to extract only the active region to the next layer is still need to investigate.}
 
 \subsection{Training and Testing}
 \label{sec:tat}
@@ -424,14 +429,59 @@ The smaller network uses only 1/10 the number of neurons and 1/50 the number of 
 
 \section{Real-Time Recognition on SpiNNaker}
 
-\subsection{Moving from Rate-based to Spiking Neurons}
-It remains a challenge to map the weights of a traditional artificial neural network to a spiking neural network. 
-There are attempts to estimate the rate of Leaky integrate-and-fire (LIF) neurons with Poisson input spike trains~\cite{la2008response}. 
-For the model illustrated above, there are two types of synaptic connection: one-to-one connections in the retina layer and N-to-one connections in all the convolutional layers (the pooling layer is also included). 
-For the retina layer, 1) the problem is: what is the connection weight between two single LIF neurons to make a post-synaptic neuron fire whenever the pre-synaptic neuron generates a spike? 
-While for the convolutional neurons, 2) given the input spike rates, LIF neuron parameters and the output spiking rate, what are the corresponding weights between the two layers?
-\textcolor{blue}{In terms of the main goals of the report, the detailed mathematical reasoning will be demonstrated in the paper which will be submitted in November. 
-A lot of work to be done here.}
+\subsection{Moving from Rate-based Artificial Neurons to Spiking Neurons}
+It remains a challenge to transfer a traditional artificial neural networks into the spiking ones.
+There are attempts~\cite{la2008response}~\cite{burkitt2006review} to estimate the output firing rate of the Leaky integrate-and-fire (LIF) neurons (Equation~\ref{equ:lif}) under certain conditions. 
+%For the model illustrated above, there are two types of synaptic connection: one-to-one connections in the retina layer and N-to-one connections in all the convolutional layers (the pooling layer is also included). 
+%For the retina layer, 1) the problem is: what is the connection weight between two single LIF neurons to make a post-synaptic neuron fire whenever the pre-synaptic neuron generates a spike? 
+%While for the convolutional neurons, 2) given the input spike rates, LIF neuron parameters and the output spiking rate, what are the corresponding weights between the two layers?
+\begin{equation}
+\frac{\D V(t)}{\D t}=-\frac{V(t)-V_\mathit{rest}}{\tau_m}+\frac{I(t)}{C_m}
+\label{equ:lif}
+\end{equation}
+The membrane potential $V$ evolves with the input current $I$ starting from the resting membrane potential  $V_{rest}$, where the membrane time constant $\tau_m = R_mC_m$, and $R_m$ stands for the membrane resistance and $C_m$ the membrane capacitance.
+
+Given a fixed constant current injection $I$, the response function, firing rate, of the LIF neuron is
+\begin{equation}
+\lambda_\mathit{out}=
+\left [ t_\mathit{ref}-\tau_m\ln \left ( 1-\frac{V_{th}-V_\mathit{rest}}{IR_m}  \right )\right ]^{-1}
+\label{equ:consI}
+\end{equation}
+when $IR_m>V_{th}-V_{rest}$, otherwise the membrane potential cannot reach the threshold $V_{th}$ and the output firing rate is zero. 
+The absolute refractory period $t_\mathit{ref}$ is included, for all the input during the period is invalid.
+In a more realistic scenario, the post-synaptic potentials (PSPs) are triggered by the spikes generated from the neuron's pre-synaptic neurons other than a constant current.
+Assume that the synaptic inputs are Poisson spike trains, the membrane potential of the LIF neuron is concerned as a diffusion process. Equation~\ref{equ:lif} can be modelled as a stochastic differential equation referring to Ornstein-Uhlenbeck process,
+\begin{equation}
+\tau_m\frac{\D V(t)}{\D t}=-\left[V(t)-V_\mathit{rest}\right] + \mu + \sigma\sqrt{2\tau_m}\xi (t)
+\label{equ:sde}
+\end{equation}
+where
+\begin{equation}
+\begin{array}{l}
+\mu=\tau_m(\mathbf{w_E\cdot\lambda_E}-\mathbf{w_I\cdot\lambda_I})
+\\
+\\
+\sigma ^{2} = \frac{\tau_m}{2}\left(\mathbf{w_E^{2}\cdot\lambda_E}+\mathbf{w_I^{2}\cdot\lambda_I}\right)
+\end{array}
+\label{equ:ou}
+\end{equation}
+are the conditional mean and variance of the membrane potential.
+The delta-correlated process $\xi(t)$ is a Gaussian white noise with zero mean, $\mathbf{w_I},\mathbf{w_I}$ stand for the weight vectors of the excitatory and the inhibitory synapses, and $\mathbf{\lambda}$ represents the vector of the input firing rate.
+The response function of the LIF neuron with Poisson input spike trains is given by Siegert function~\cite{siegert1951first}, 
+\begin{equation}
+%\lambda_\mathit{out}=\left(\tau_\mathit{ref} + \frac{\tau_Q}{\sigma_Q}\sqrt{\frac{\pi}{2}} \int_{V_\mathit{rest}}^{V_\mathit{th}}du \:\exp \left(\frac{u-\mu_Q}{\sqrt2\sigma_Q} \right )^{2}\left[1+erf \left(\frac{u-\mu_Q}{\sqrt2\sigma_Q} \right ) \right ]\right)^{-1}
+\begin{split}
+\lambda_\mathit{out}=\left(\tau_\mathit{ref} + \frac{\tau_Q}{\sigma_Q}\sqrt{\frac{\pi}{2}} \int_{V_\mathit{rest}}^{V_\mathit{th}}\D u \:\exp \left(\frac{u-\mu_Q}{\sqrt2\sigma_Q} \right )^{2}\left[1+\mathrm{erf} \left(\frac{u-\mu_Q}{\sqrt2\sigma_Q} \right ) \right ]\right)^{-1}
+\end{split}
+\label{equ:sgt}
+\end{equation}
+where $\tau_Q, \mu_Q, \sigma_Q$ are identified to $\tau_m, \mu, \sigma$ in Equation~\ref{equ:ou}, and erf is the error function.
+
+Still there are some limitations on the response function. 
+For the diffusion process, only small amplitude(weight) of the PSPs generated by a large amount of input spikes(high spiking rate) works under this circumstances; 
+plus, the delta function is required (the synaptic time constant is considered to be zero). Thus only a rough approximation of the output spike rate has been taken out.
+Secondly, given the input spike rates of the pre-synaptic neurons, the parameters of the LIF neuron and the output spiking rate, how to tune the every corresponding synaptic weight remains a hard task.
+
 
 \subsection{Live Recognition}
 We implemented the prototype of the neural gesture recognition system on SpiNNaker. 
@@ -440,26 +490,28 @@ each Gabor filter has 112$\times$112 valid neurons, since the kernel size is 17$
 each pooling layer is as big as 36$\times$36, convolving with five template kernels (21$\times$21); 
 thus, the recognition populations are 16$\times$16 neurons each. Altogether 74,320 neurons and 15,216,512 synapses use up to 19 chips on a 48-node board.
 
-Figure~\ref{fig:live} shows snapshots of the real time gesture recognition system. Figure~\ref{fig:live1} is a snapshot of the Gabor filter layer, where Figure~\ref{fig:live2} shows the integration of all the pooled populations, and the active neurons in the visualizer in Figure~\ref{fig:live3} are pointing out the position of the recognized pattern (One finger). All the videos can be found on Youtube\footnote{\url{
+Figure~\ref{fig:live} shows snapshots of the real time gesture recognition system. 
+Figure~\ref{fig:live1} is a snapshot of the Gabor filter layer, where Figure~\ref{fig:live2} shows the integration of all the pooled populations, and the active neurons in the visualizer in Figure~\ref{fig:live3} are pointing out the position of the recognized pattern (One finger). 
+All the videos can be found on Youtube\footnote{\url{
 http://youtu.be/PvJy6RKAJhw?list=PLxZ1W-Upr3eoQuLxq87qpUL-CwSphtEBJ, http://youtu.be/FZJshPCJ1pg?list=PLxZ1W-Upr3eoQuLxq87qpUL-CwSphtEBJ, http://youtu.be/yxN90aGGKvg?list=PLxZ1W-Upr3eoQuLxq87qpUL-CwSphtEBJ}}.
 
 \begin{figure}
 \centering
 	\begin{subfigure}[t]{0.42\textwidth}
 		\includegraphics[width=\textwidth]{pics/live1.png}
-	    \caption{Outline of the platform}
+	    \caption{Snapshot of the neuron responses of the Gabor filter layer orienting to the horizontal direction }
 	    \label{fig:live1}
 	\end{subfigure}
 	\\
 	\begin{subfigure}[t]{0.42\textwidth}
 		\includegraphics[width=\textwidth]{pics/live2.png}
-		\caption{Picture of the hardware platform}
+		\caption{Snapshot of the neuron responses of the integrate layer}
 	    \label{fig:live2}
 	\end{subfigure}
 	\\
 	\begin{subfigure}[t]{0.42\textwidth}
 		\includegraphics[width=\textwidth]{pics/live.png}
-		\caption{Picture of the hardware platform}
+		\caption{Snapshot of the neuron responses of the template matching layer}
 	    \label{fig:live3}
 	\end{subfigure}	
 
