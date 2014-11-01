@@ -126,7 +126,7 @@ print 'Simulation started... on: {}\n'.format(dt.datetime.now())
 p.run(runtime)
 
 # write spikes out to files
-filename = 'results/conv_0.spikes'
+filename = 'results/conv_2.spikes'
 convolved_pops[0].printSpikes(filename)
 filename = 'results/integrate.spikes'
 pool_integrate.printSpikes(filename)

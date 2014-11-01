@@ -19,7 +19,7 @@ from math import *
 from retinaFunc import *
 
 #Define Simulation Paras
-runtime = 10000
+runtime = 15000
 num_per_core = 256
 
 #INIT pacman103
@@ -87,7 +87,8 @@ print "convolved_size:", convolved_size
 
 pool_size = 5
 pool_shift = 3
-weights_pool = 5.75
+weights_pool = 4.5
+#weights_pool = 5.75
 conn_pool, pooling_out_size = pooling(convolved_size, pool_size, pool_shift, weights_pool, 1) # generate connection weights for pooling.
 pooling_pops = []
 print "pooling out size:", pooling_out_size
@@ -108,7 +109,7 @@ for iOrient in range (0, num_orient):
     p.Projection(pooling_pops[iOrient], pool_integrate, p.OneToOneConnector(weights = weights_pool, delays = 1), target='excitatory')
 # -----------------First thing last, the spike source array since it changes according to the spike trains-----------
 
-spikeTrains, source_Num = load_inputSpikes('recorded_data_for_spinnaker/single.mat', 'retinaPop', retina_size)
+spikeTrains, source_Num = load_inputSpikes('recorded_data_for_spinnaker/fist.mat', 'retinaPop', retina_size)
 retina_pop = []
 print "source_Num:", source_Num
 #for i in range(source_Num):
@@ -118,16 +119,18 @@ for i in range(1):
     p.Projection(retina_pop[i], input_pop, p.OneToOneConnector(weights=input_weights, delays=1), label='input projection')
 
 #input_pop.record()
+convolved_pops[0].record()
 pool_integrate.record()
 #retina_pop[0].record()
-print 'Simulation started... on time: {}\n'.format(dt.datetime.now())
+print 'Simulation started... on: {}\n'.format(dt.datetime.now())
 p.run(runtime)
 
 # write spikes out to files
-#filename = 'results/input_0.spikes'
-#input_pop.printSpikes(filename)
+filename = 'results/conv_0.spikes'
+convolved_pops[0].printSpikes(filename)
 filename = 'results/integrate.spikes'
 pool_integrate.printSpikes(filename)
 
 p.end()
 print 'Simulation end! on : {}\n'.format(dt.datetime.now())
+

@@ -134,7 +134,7 @@ def load_inputSpikes(file_name, input_name, retina_size):
     mat = scipy.io.loadmat(file_name)
     spike = mat[input_name]
     spike_len = len(spike)
-    #source_len = 10000;  #10ms
+    #source_len = 10000  #10ms
     source_len = spike[spike_len - 1][0] + 1
     source_Num = spike[spike_len - 1][0]/source_len + 1
     spikeTrains = [ [[] for i in range(retina_size * retina_size)] for j in range(source_Num) ]
@@ -154,7 +154,19 @@ def load_recordedFile( filename ):
         array = [[int(x) for x in line.split()] for line in f]
     return array
 
+pool_integrate.record()
+#retina_pop[0].record()
+print 'Simulation started... on: {}\n'.format(dt.datetime.now())
+p.run(runtime)
 
+# write spikes out to files
+#filename = 'results/input_0.spikes'
+#input_pop.printSpikes(filename)
+filename = 'results/integrate.spikes'
+pool_integrate.printSpikes(filename)
+
+p.end()
+print 'Simulation end! on : {}\n'.format(dt.datetime.now())
 
 
 
