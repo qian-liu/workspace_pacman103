@@ -109,7 +109,7 @@ for iOrient in range (0, num_orient):
     p.Projection(pooling_pops[iOrient], pool_integrate, p.OneToOneConnector(weights = weights_pool, delays = 1), target='excitatory')
 # -----------------First thing last, the spike source array since it changes according to the spike trains-----------
 
-spikeTrains, source_Num = load_inputSpikes('recorded_data_for_spinnaker/fist.mat', 'retinaPop', retina_size)
+spikeTrains, source_Num = load_inputSpikes('recorded_data_for_spinnaker/thumb.mat', 'retinaPop', retina_size)
 retina_pop = []
 print "source_Num:", source_Num
 #for i in range(source_Num):
@@ -128,7 +128,7 @@ p.run(runtime)
 # write spikes out to files
 filename = 'results/conv_0.spikes'
 convolved_pops[0].printSpikes(filename)
-filename = 'results/integrate.spikes'
+filename = 'results/integrate_thumb.spikes'
 pool_integrate.printSpikes(filename)
 
 p.end()

@@ -19,7 +19,7 @@ from math import *
 from retinaFunc import *
 
 #Define Simulation Paras
-runtime = 15000 # just for gesture single
+runtime = 20000 # just for gesture single
 num_per_core = 256
 
 #INIT pacman103
@@ -32,7 +32,7 @@ virtual_chip_coords = {'x': 0, 'y': 5}
 link = 4
 
 integrate_size = 36
-spikeTrains, source_Num = load_inputSpikes('recorded_data_for_spinnaker/integrate_hand.mat', 'integrate', integrate_size)
+spikeTrains, source_Num = load_inputSpikes2('recorded_data_for_spinnaker/integrate_two.mat', 'integrate', integrate_size)
 '''
 integrate_pop = []
 print "source_Num:", source_Num
@@ -66,32 +66,34 @@ for iTemplate in range (0, num_templates):
                        p.IF_curr_exp,   # Neuron Type
                        cell_recognition,   # Neuron Parameters
                        label="recognition_%d" % ( iTemplate) )  ) # Label
-                       
-pool_integrate = p.Population(integrate_size * integrate_size, p.SpikeSourceArray, {'spike_times': spikeTrains[0] }, label='pool_integrate')
-
-for iTemplate in range (0, num_templates):
-    template = load_template(iTemplate, templates_names, templates_file ) # lading tempaltes
-    #template_weight = [[template_scale * x for x in y] for y in template] # play with weight_scale to move from ANN simulation to Spiking Neural Networks
-    template_weight = [[template_scale[iTemplate] * x for x in y] for y in template] # play with weight_scale to move from ANN simulation to Spiking Neural Networks
-    exci_list, inhi_list, recognition_size = convConnector2(integrate_size, template_weight, 1, 1) #generate the weights for the template convolution
-    for i in range(0, len(exci_list)):
-        p.Projection(pool_integrate, recognition_pops[iTemplate], p.FromListConnector(exci_list[i]), target='excitatory')
-                
-    for i in range(0, len(inhi_list)):
-        p.Projection(pool_integrate, recognition_pops[iTemplate], p.FromListConnector(inhi_list[i]), target='inhibitory')
-    recognition_pops[iTemplate].record()
+pool_integrate = []
+for i_source in range ( source_Num):                  
+    pop = p.Population(integrate_size * integrate_size, p.SpikeSourceArray, {'spike_times': spikeTrains[i_source] }, label='pool_integrate')
+    pool_integrate.append( pop )
+    pool_integrate[i_source].record()
+    for iTemplate in range (0, num_templates):
+        template = load_template(iTemplate, templates_names, templates_file ) # lading tempaltes
+        #template_weight = [[template_scale * x for x in y] for y in template] # play with weight_scale to move from ANN simulation to Spiking Neural Networks
+        template_weight = [[template_scale[iTemplate] * x for x in y] for y in template] # play with weight_scale to move from ANN simulation to Spiking Neural Networks
+        exci_list, inhi_list, recognition_size = convConnector2(integrate_size, template_weight, 1, 1) #generate the weights for the template convolution
+        for i in range(0, len(exci_list)):
+            p.Projection(pool_integrate[i_source], recognition_pops[iTemplate], p.FromListConnector(exci_list[i]), target='excitatory')
+                    
+        for i in range(0, len(inhi_list)):
+            p.Projection(pool_integrate[i_source], recognition_pops[iTemplate], p.FromListConnector(inhi_list[i]), target='inhibitory')
+        recognition_pops[iTemplate].record()
     
 print "recognition_size:", recognition_size
-
-pool_integrate.record()
 print 'Simulation started... on: {}\n'.format(dt.datetime.now())
 p.run(runtime)
 
 # write spikes out to files
-filename = 'results/5/integrate_5.spikes'
-pool_integrate.printSpikes(filename)
+for i_source in range ( num_source): 
+    filename = 'results/2/integrate_%d.spikes' %(i_source)
+    pool_integrate[i_source].printSpikes(filename)
+
 for iTemplate in range (0, num_templates):
-    filename = 'results/5/recog_%d.spikes' %(iTemplate)
+    filename = 'results/2/recog_%d.spikes' %(iTemplate)
     recognition_pops[iTemplate].printSpikes(filename)
 
 p.end()

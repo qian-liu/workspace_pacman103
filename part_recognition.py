@@ -32,7 +32,7 @@ virtual_chip_coords = {'x': 0, 'y': 5}
 link = 4
 
 integrate_size = 36
-spikeTrains, source_Num = load_inputSpikes('recorded_data_for_spinnaker/integrate_1.mat', 'integrate', integrate_size)
+spikeTrains, source_Num = load_inputSpikes('recorded_data_for_spinnaker/integrate_single.mat', 'integrate', integrate_size)
 '''
 integrate_pop = []
 print "source_Num:", source_Num
@@ -67,7 +67,7 @@ for iTemplate in range (0, num_templates):
                        cell_recognition,   # Neuron Parameters
                        label="recognition_%d" % ( iTemplate) )  ) # Label
                        
-pool_integrate = p.Population(integrate_size * integrate_size, p.SpikeSourceArray, {'spike_times': spikeTrains[0] }, label='retina_pop')
+pool_integrate = p.Population(integrate_size * integrate_size, p.SpikeSourceArray, {'spike_times': spikeTrains[0] }, label='pool_integrate')
 
 for iTemplate in range (0, num_templates):
     template = load_template(iTemplate, templates_names, templates_file ) # lading tempaltes
@@ -88,10 +88,10 @@ print 'Simulation started... on: {}\n'.format(dt.datetime.now())
 p.run(runtime)
 
 # write spikes out to files
-filename = 'results/integrate_single.spikes'
+filename = 'results/1/integrate_1.spikes'
 pool_integrate.printSpikes(filename)
 for iTemplate in range (0, num_templates):
-    filename = 'results/recog_%d.spikes' %(iTemplate)
+    filename = 'results/1/recog_%d.spikes' %(iTemplate)
     recognition_pops[iTemplate].printSpikes(filename)
 
 p.end()
