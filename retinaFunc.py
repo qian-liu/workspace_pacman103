@@ -160,6 +160,21 @@ def load_inputSpikes2(file_name, input_name, retina_size):
         spikeTrains[source_id][index].append( float(spike[i][0] ) )
     return spikeTrains, source_Num
 
+def load_inputSpikes3(file_name, input_name, retina_size):
+    mat = scipy.io.loadmat(file_name)
+    spike = mat[input_name]
+    spike_len = len(spike)
+    source_len = 10000  #10ms
+    #source_len = spike[spike_len - 1][0] + 1
+    source_Num = spike[spike_len - 1][0]/source_len + 1
+    spikeTrains = [ [[] for i in range(retina_size * retina_size)] for j in range(source_Num) ]
+
+    for i in range( spike_len ):
+        index = spike[i][1]
+        source_id = spike[i][0]/source_len
+        spikeTrains[source_id][index].append( float(spike[i][0] % source_len ) )
+    return spikeTrains, source_Num
+
 def load_recordedFile( filename ):
     with open(filename) as f:
         f.readline()

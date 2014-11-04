@@ -51,12 +51,12 @@ num_templates = 5
 templates_names = ['fist', 'one', 'two', 'hand', 'thumb']
 templates_file = 'template.mat'
 #template_scale = 0.2
-template_scale = [0.2, 0.2, 0.2, 0.2, 0.1]
+template_scale = [0.3, 0.4, 0.4, 0.4, 0.2]
 recognition_pops = []
 recognition_size = 16
 cell_recognition = { 'tau_m' : 20, 'v_init'  : -75, 'i_offset'  : 0,
-    'v_rest'    : -75,  'v_reset'    : -75, 'v_thresh'   : -50,
-    'tau_syn_E' : 9,   'tau_syn_I'  : 20,  'tau_refrac' : 1}
+    'v_rest'    : -75,  'v_reset'    : -75, 'v_thresh'   : -60,
+    'tau_syn_E' : 5,   'tau_syn_I'  : 10,  'tau_refrac' : 1}
 
 for iTemplate in range (0, num_templates):
     #template = load_template(iTemplate, templates_names, templates_file ) # lading tempaltes
@@ -88,10 +88,10 @@ print 'Simulation started... on: {}\n'.format(dt.datetime.now())
 p.run(runtime)
 
 # write spikes out to files
-filename = 'results/1/integrate_1.spikes'
+filename = 'results/11/integrate_1.spikes'
 pool_integrate.printSpikes(filename)
 for iTemplate in range (0, num_templates):
-    filename = 'results/1/recog_%d.spikes' %(iTemplate)
+    filename = 'results/11/recog_%d.spikes' %(iTemplate)
     recognition_pops[iTemplate].printSpikes(filename)
 
 p.end()
