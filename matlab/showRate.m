@@ -33,9 +33,9 @@ function [ output_rate ] = showRate( file_name, frame_len, run_time )
             r_image(index_x,index_y) = r_image(index_x,index_y) + 1;
         end
     end
-    len_rate = length(output_rate);
-    if len_rate < run_time/frame_len
-        len_temp = floor(run_time/frame_len) - len_rate;
+    len_rate  = length(output_rate);
+    if len_rate - 1 < run_time/frame_len
+        len_temp = floor(run_time/frame_len) - len_rate + 1;
         temp = zeros(len_temp, 1);
         output_rate = [output_rate; temp];
     end

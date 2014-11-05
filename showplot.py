@@ -1,13 +1,13 @@
 import numpy, pylab, random, sys
 from retinaFunc import *    
-filename = 'results/11/integrate_1.spikes'
+filename = 'results/integrate_32_all.spikes'
 pylab.figure()
 spikes = load_recordedFile(filename)
 pylab.plot([i[0] for i in spikes], [i[1] for i in spikes], ".") 
 pylab.xlabel('Time/ms')
 pylab.ylabel('spikes')
 pylab.title('recorded data')
-
+'''
 for j in range(5):
     pylab.figure()
     filename = 'results/11/recog_%d.spikes' %(j)
@@ -16,4 +16,6 @@ for j in range(5):
     pylab.xlabel('Time/ms')
     pylab.ylabel('spikes')
     pylab.title('recognition_%d' %(j))
+'''
 pylab.show()
+
