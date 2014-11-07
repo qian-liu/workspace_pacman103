@@ -1,0 +1,133 @@
+        Memory Map for Chip (2, 4)
+        ==========================
+
+Generated: Wed Oct 29 16:45:12 2014 for target machine 'spinn-3'
+
+Processor 1:     (Start address 0x70000000)
+ Region    Rel.Addr  (Abs.Addr)          Size(bytes)
+==========================================================
+   0       0x     0 (0x70000000)         80 (0x    50)
+   1       0x    50 (0x70000050)         16 (0x    10)
+   2       0x    60 (0x70000060)      21332 (0x  5354)
+   3       0x  53B4 (0x700053B4)      85280 (0x 14D20)
+
+Processor 2:     (Start address 0x7001A0D4)
+ Region    Rel.Addr  (Abs.Addr)          Size(bytes)
+==========================================================
+   0       0x     0 (0x7001A0D4)         80 (0x    50)
+   1       0x    50 (0x7001A124)         16 (0x    10)
+   2       0x    60 (0x7001A134)      19812 (0x  4D64)
+   3       0x  4DC4 (0x7001EE98)      79200 (0x 13560)
+
+Processor 3:     (Start address 0x700323F8)
+ Region    Rel.Addr  (Abs.Addr)          Size(bytes)
+==========================================================
+   0       0x     0 (0x700323F8)         80 (0x    50)
+   1       0x    50 (0x70032448)         16 (0x    10)
+   2       0x    60 (0x70032458)      18372 (0x  47C4)
+   3       0x  4824 (0x70036C1C)      73440 (0x 11EE0)
+
+Processor 4:     (Start address 0x70048AFC)
+ Region    Rel.Addr  (Abs.Addr)          Size(bytes)
+==========================================================
+   0       0x     0 (0x70048AFC)         80 (0x    50)
+   1       0x    50 (0x70048B4C)         16 (0x    10)
+   2       0x    60 (0x70048B5C)      15908 (0x  3E24)
+   3       0x  3E84 (0x7004C980)      63584 (0x  F860)
+
+Processor 5:     (Start address 0x7005C1E0)
+ Region    Rel.Addr  (Abs.Addr)          Size(bytes)
+==========================================================
+   0       0x     0 (0x7005C1E0)         80 (0x    50)
+   1       0x    50 (0x7005C230)         16 (0x    10)
+   2       0x    60 (0x7005C240)      13788 (0x  35DC)
+   3       0x  363C (0x7005F81C)      55104 (0x  D740)
+
+Processor 6:     (Start address 0x7006CF5C)
+ Region    Rel.Addr  (Abs.Addr)          Size(bytes)
+==========================================================
+   0       0x     0 (0x7006CF5C)         80 (0x    50)
+   1       0x    50 (0x7006CFAC)         16 (0x    10)
+   2       0x    60 (0x7006CFBC)      11996 (0x  2EDC)
+   3       0x  2F3C (0x7006FE98)      47936 (0x  BB40)
+
+Processor 7:     (Start address 0x7007B9D8)
+ Region    Rel.Addr  (Abs.Addr)          Size(bytes)
+==========================================================
+   0       0x     0 (0x7007B9D8)         80 (0x    50)
+   1       0x    50 (0x7007BA28)         16 (0x    10)
+   2       0x    60 (0x7007BA38)       8788 (0x  2254)
+   3       0x  22B4 (0x7007DC8C)      35104 (0x  8920)
+
+Processor 8:     (Start address 0x700865AC)
+ Region    Rel.Addr  (Abs.Addr)          Size(bytes)
+==========================================================
+   0       0x     0 (0x700865AC)         80 (0x    50)
+   1       0x    50 (0x700865FC)         16 (0x    10)
+   2       0x    60 (0x7008660C)       6852 (0x  1AC4)
+   3       0x  1B24 (0x700880D0)      27360 (0x  6AE0)
+
+Processor 9:     (Start address 0x7008EBB0)
+ Region    Rel.Addr  (Abs.Addr)          Size(bytes)
+==========================================================
+   0       0x     0 (0x7008EBB0)         80 (0x    50)
+   1       0x    50 (0x7008EC00)         16 (0x    10)
+   2       0x    60 (0x7008EC10)       6204 (0x  183C)
+   3       0x  189C (0x7009044C)      24768 (0x  60C0)
+
+Processor 10:     (Start address 0x7009650C)
+ Region    Rel.Addr  (Abs.Addr)          Size(bytes)
+==========================================================
+   0       0x     0 (0x7009650C)         80 (0x    50)
+   1       0x    50 (0x7009655C)         16 (0x    10)
+   2       0x    60 (0x7009656C)       5556 (0x  15B4)
+   3       0x  1614 (0x70097B20)      22176 (0x  56A0)
+
+Processor 11:     (Start address 0x7009D1C0)
+ Region    Rel.Addr  (Abs.Addr)          Size(bytes)
+==========================================================
+   0       0x     0 (0x7009D1C0)         80 (0x    50)
+   1       0x    50 (0x7009D210)         16 (0x    10)
+   2       0x    60 (0x7009D220)       3292 (0x   CDC)
+   3       0x   D3C (0x7009DEFC)      13120 (0x  3340)
+
+Processor 12:     (Start address 0x700A123C)
+ Region    Rel.Addr  (Abs.Addr)          Size(bytes)
+==========================================================
+   0       0x     0 (0x700A123C)         80 (0x    50)
+   1       0x    50 (0x700A128C)         16 (0x    10)
+   2       0x    60 (0x700A129C)       2644 (0x   A54)
+   3       0x   AB4 (0x700A1CF0)      10528 (0x  2920)
+
+Processor 13:     (Start address 0x700A4610)
+ Region    Rel.Addr  (Abs.Addr)          Size(bytes)
+==========================================================
+   0       0x     0 (0x700A4610)         80 (0x    50)
+   1       0x    50 (0x700A4660)         16 (0x    10)
+   2       0x    60 (0x700A4670)       2084 (0x   824)
+   3       0x   884 (0x700A4E94)       8288 (0x  2060)
+
+Processor 14:     (Start address 0x700A6EF4)
+ Region    Rel.Addr  (Abs.Addr)          Size(bytes)
+==========================================================
+   0       0x     0 (0x700A6EF4)         80 (0x    50)
+   1       0x    50 (0x700A6F44)         16 (0x    10)
+   2       0x    60 (0x700A6F54)       1524 (0x   5F4)
+   3       0x   654 (0x700A7548)       6048 (0x  17A0)
+
+Processor 15:     (Start address 0x700A8CE8)
+ Region    Rel.Addr  (Abs.Addr)          Size(bytes)
+==========================================================
+   0       0x     0 (0x700A8CE8)         80 (0x    50)
+   1       0x    50 (0x700A8D38)         16 (0x    10)
+   2       0x    60 (0x700A8D48)        980 (0x   3D4)
+   3       0x   434 (0x700A911C)       3872 (0x   F20)
+
+Processor 16:     (Start address 0x700AA03C)
+ Region    Rel.Addr  (Abs.Addr)          Size(bytes)
+==========================================================
+   0       0x     0 (0x700AA03C)         80 (0x    50)
+   1       0x    50 (0x700AA08C)         16 (0x    10)
+   2       0x    60 (0x700AA09C)        884 (0x   374)
+   3       0x   3D4 (0x700AA410)       3488 (0x   DA0)
+

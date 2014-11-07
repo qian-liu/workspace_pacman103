@@ -1,0 +1,6 @@
+router contains 2 entries 
+ 
+  Index   Key(hex)    Mask(hex)    Route(hex)    Src. Core -> [Cores][Links]
+------------------------------------------------------------------------------
+    0     104 800      FFFFF800          21       (1, 4, 1)    [] [E, S]
+    1     1041000      FFFFF800           1       (1, 4, 2)    [] [E]

@@ -32,7 +32,8 @@ virtual_chip_coords = {'x': 0, 'y': 5}
 link = 4
 
 integrate_size = 36
-spikeTrains, source_Num = load_inputSpikes3('recorded_data_for_spinnaker/integrate_all.mat', 'integrate', integrate_size)
+#spikeTrains, source_Num = load_inputSpikes3('recorded_data_for_spinnaker/integrate_all.mat', 'integrate', integrate_size)
+spikeTrains, source_Num = load_inputSpikes4('recorded_data_for_spinnaker/integrate_all.mat', 'integrate', integrate_size, runtime)
 '''
 integrate_pop = []
 print "source_Num:", source_Num
@@ -51,7 +52,7 @@ num_templates = 5
 templates_names = ['fist', 'one', 'two', 'hand', 'thumb']
 templates_file = 'template.mat'
 #template_scale = 0.2
-template_scale = [0.2, 0.2, 0.2, 0.2, 0.1]
+template_scale = [0.16, 0.22, 0.2, 0.23, 0.11]
 recognition_pops = []
 recognition_size = 16
 cell_recognition = { 'tau_m' : 20, 'v_init'  : -75, 'i_offset'  : 0,
@@ -66,8 +67,9 @@ for iTemplate in range (0, num_templates):
                        p.IF_curr_exp,   # Neuron Type
                        cell_recognition,   # Neuron Parameters
                        label="recognition_%d" % ( iTemplate) )  ) # Label
-                       
-pool_integrate = p.Population(integrate_size * integrate_size, p.SpikeSourceArray, {'spike_times': spikeTrains[4] }, label='pool_integrate')
+
+source_count = 5;                       
+pool_integrate = p.Population(integrate_size * integrate_size, p.SpikeSourceArray, {'spike_times': spikeTrains[source_count] }, label='pool_integrate')
 
 for iTemplate in range (0, num_templates):
     template = load_template(iTemplate, templates_names, templates_file ) # lading tempaltes
@@ -88,10 +90,10 @@ print 'Simulation started... on: {}\n'.format(dt.datetime.now())
 p.run(runtime)
 
 # write spikes out to files
-filename = 'results/15/integrate.spikes'
+filename = 'results/0%d/integrate.spikes' %(source_count+1)
 pool_integrate.printSpikes(filename)
 for iTemplate in range (0, num_templates):
-    filename = 'results/15/recog_%d.spikes' %(iTemplate)
+    filename = 'results/0%d/recog_%d.spikes' %(source_count+1, iTemplate)
     recognition_pops[iTemplate].printSpikes(filename)
 
 p.end()

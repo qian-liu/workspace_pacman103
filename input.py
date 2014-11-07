@@ -87,8 +87,8 @@ print "convolved_size:", convolved_size
 
 pool_size = 5
 pool_shift = 3
-weights_pool = 4.5
-#weights_pool = 5.75
+#weights_pool = 4.5
+weights_pool = 5.75
 conn_pool, pooling_out_size = pooling(convolved_size, pool_size, pool_shift, weights_pool, 1) # generate connection weights for pooling.
 pooling_pops = []
 print "pooling out size:", pooling_out_size

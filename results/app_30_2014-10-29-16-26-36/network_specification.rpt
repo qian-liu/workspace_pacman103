@@ -1,0 +1,119 @@
+        Network Specification
+        =====================
+
+Generated: Wed Oct 29 16:36:38 2014 for target machine 'spinn-3'
+
+*** Vertices:
+Vertex 'Monitor', size: 1, flags: 0
+  Model: AppMonitor
+  Placement constraint: (x: 0, y: 0)
+
+Vertex 'Input', size: 16384, flags: 0
+  Model: IF_curr_exp
+
+Vertex 'Convolutoin_0', size: 12544, flags: 0
+  Model: IF_curr_exp
+
+Vertex 'Convolutoin_1', size: 12544, flags: 0
+  Model: IF_curr_exp
+
+Vertex 'Convolutoin_2', size: 12544, flags: 0
+  Model: IF_curr_exp
+
+Vertex 'Convolutoin_3', size: 12544, flags: 0
+  Model: IF_curr_exp
+
+Vertex 'pool_integrate', size: 1296, flags: 0
+  Model: IF_curr_exp
+
+Vertex 'pool_0', size: 1296, flags: 0
+  Model: IF_curr_exp
+
+Vertex 'pool_1', size: 1296, flags: 0
+  Model: IF_curr_exp
+
+Vertex 'pool_2', size: 1296, flags: 0
+  Model: IF_curr_exp
+
+Vertex 'pool_3', size: 1296, flags: 0
+  Model: IF_curr_exp
+
+Vertex 'recognition_0', size: 256, flags: 0
+  Model: IF_curr_exp
+
+Vertex 'recognition_1', size: 256, flags: 0
+  Model: IF_curr_exp
+
+Vertex 'recognition_2', size: 256, flags: 0
+  Model: IF_curr_exp
+
+Vertex 'recognition_3', size: 256, flags: 0
+  Model: IF_curr_exp
+
+Vertex 'recognition_4', size: 256, flags: 0
+  Model: IF_curr_exp
+
+Vertex 'retina_pop', size: 16384, flags: 0
+  Model: SpikeSourceArray
+
+*** Edges:
+Edge (NoName) from vertex: 'Input' (16384 atoms) to vertex: 'Convolutoin_0' (12544 atoms)
+  Model: NoneType
+
+Edge (NoName) from vertex: 'Input' (16384 atoms) to vertex: 'Convolutoin_1' (12544 atoms)
+  Model: NoneType
+
+Edge (NoName) from vertex: 'Input' (16384 atoms) to vertex: 'Convolutoin_2' (12544 atoms)
+  Model: NoneType
+
+Edge (NoName) from vertex: 'Input' (16384 atoms) to vertex: 'Convolutoin_3' (12544 atoms)
+  Model: NoneType
+
+Edge (NoName) from vertex: 'Convolutoin_0' (12544 atoms) to vertex: 'pool_0' (1296 atoms)
+  Model: NoneType
+
+Edge (NoName) from vertex: 'pool_0' (1296 atoms) to vertex: 'pool_integrate' (1296 atoms)
+  Model: NoneType
+
+Edge (NoName) from vertex: 'Convolutoin_1' (12544 atoms) to vertex: 'pool_1' (1296 atoms)
+  Model: NoneType
+
+Edge (NoName) from vertex: 'pool_1' (1296 atoms) to vertex: 'pool_integrate' (1296 atoms)
+  Model: NoneType
+
+Edge (NoName) from vertex: 'Convolutoin_2' (12544 atoms) to vertex: 'pool_2' (1296 atoms)
+  Model: NoneType
+
+Edge (NoName) from vertex: 'pool_2' (1296 atoms) to vertex: 'pool_integrate' (1296 atoms)
+  Model: NoneType
+
+Edge (NoName) from vertex: 'Convolutoin_3' (12544 atoms) to vertex: 'pool_3' (1296 atoms)
+  Model: NoneType
+
+Edge (NoName) from vertex: 'pool_3' (1296 atoms) to vertex: 'pool_integrate' (1296 atoms)
+  Model: NoneType
+
+Edge (NoName) from vertex: 'pool_integrate' (1296 atoms) to vertex: 'recognition_0' (256 atoms)
+  Model: NoneType
+
+Edge (NoName) from vertex: 'pool_integrate' (1296 atoms) to vertex: 'recognition_1' (256 atoms)
+  Model: NoneType
+
+Edge (NoName) from vertex: 'pool_integrate' (1296 atoms) to vertex: 'recognition_2' (256 atoms)
+  Model: NoneType
+
+Edge (NoName) from vertex: 'pool_integrate' (1296 atoms) to vertex: 'recognition_3' (256 atoms)
+  Model: NoneType
+
+Edge (NoName) from vertex: 'pool_integrate' (1296 atoms) to vertex: 'recognition_4' (256 atoms)
+  Model: NoneType
+
+Edge 'input projection' from vertex: 'retina_pop' (16384 atoms) to vertex: 'Input' (16384 atoms)
+  Model: NoneType
+
+Edge (NoName) from vertex: 'Input' (16384 atoms) to vertex: 'Monitor' (1 atoms)
+  Model: No Model
+
+Edge (NoName) from vertex: 'pool_integrate' (1296 atoms) to vertex: 'Monitor' (1 atoms)
+  Model: No Model
+

@@ -1,0 +1,21 @@
+        Memory Map for Chip (1, 4)
+        ==========================
+
+Generated: Wed Oct 29 16:45:12 2014 for target machine 'spinn-3'
+
+Processor 1:     (Start address 0x70000000)
+ Region    Rel.Addr  (Abs.Addr)          Size(bytes)
+==========================================================
+   0       0x     0 (0x70000000)         80 (0x    50)
+   1       0x    50 (0x70000050)         16 (0x    10)
+   2       0x    60 (0x70000060)        420 (0x   1A4)
+   3       0x   204 (0x70000204)       1632 (0x   660)
+
+Processor 2:     (Start address 0x70000864)
+ Region    Rel.Addr  (Abs.Addr)          Size(bytes)
+==========================================================
+   0       0x     0 (0x70000864)         80 (0x    50)
+   1       0x    50 (0x700008B4)         16 (0x    10)
+   2       0x    60 (0x700008C4)        356 (0x   164)
+   3       0x   1C4 (0x70000A28)       1376 (0x   560)
+
