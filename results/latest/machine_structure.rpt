@@ -1,0 +1,9 @@
+        Target SpiNNaker Machine Structure
+        ==================================
+
+Generated: Sat Nov  8 17:54:17 2014 for target machine 'spinn-3'
+
+Machine dimensions (in chips) x : 8  y : 8
+
+Machine time step: 1000 micro-seconds
+Time scale factor: 1 (simulation slow down factor)

@@ -19,7 +19,7 @@ from math import *
 from retinaFunc import *
 
 #Define Simulation Paras
-runtime = 39000 # just for gesture single
+runtime = 66000 # just for gesture single
 num_per_core = 256
 window_time = 5000
 #INIT pacman103
@@ -70,19 +70,18 @@ for iTemplate in range (0, num_templates):
                        label="recognition_%d" % ( iTemplate) )  ) # Label
 
 pool_integrate = []
-source_Num = source_Num /2 + 1
-print 'source_Num: ', source_Num
-for source_count in range (source_Num):
+#source_Num = source_Num /2
+for source_count in range (7, source_Num):
     pool_integrate.append( p.Population(integrate_size * integrate_size, p.SpikeSourceArray, {'spike_times': spikeTrains[source_count] }, label='pool_integrate') )
-    pool_integrate[source_count].record()
+    pool_integrate[source_count-7].record()
 for iTemplate in range (0, num_templates):
     template = load_template(iTemplate, templates_names, templates_file ) # lading tempaltes
     #template_weight = [[template_scale * x for x in y] for y in template] # play with weight_scale to move from ANN simulation to Spiking Neural Networks
     template_weight = [[template_scale[iTemplate] * x for x in y] for y in template] # play with weight_scale to move from ANN simulation to Spiking Neural Networks
     exci_list, inhi_list, recognition_size = convConnector(integrate_size, template_weight, 1, 1) #generate the weights for the template convolution
-    for source_count in range (source_Num):
-        p.Projection(pool_integrate[source_count], recognition_pops[iTemplate], p.FromListConnector(exci_list), target='excitatory')
-        p.Projection(pool_integrate[source_count], recognition_pops[iTemplate], p.FromListConnector(inhi_list), target='inhibitory')
+    for source_count in range (7, source_Num):
+        p.Projection(pool_integrate[source_count-7], recognition_pops[iTemplate], p.FromListConnector(exci_list), target='excitatory')
+        p.Projection(pool_integrate[source_count-7], recognition_pops[iTemplate], p.FromListConnector(inhi_list), target='inhibitory')
     
     recognition_pops[iTemplate].record()
     
@@ -93,11 +92,11 @@ print 'Simulation started... on: {}\n'.format(dt.datetime.now())
 p.run(runtime)
 
 # write spikes out to files
-for source_count in range (source_Num):
-    filename = 'results/321/integrate_%d.spikes' %(source_count+1)
-    pool_integrate[source_count].printSpikes(filename)
+#for source_count in range (7, source_Num):
+#    filename = 'results/32_2/integrate_%d.spikes' %(source_count+1)
+#    pool_integrate[source_count-7].printSpikes(filename)
 for iTemplate in range (0, num_templates):
-    filename = 'results/321/recog_%d.spikes' %(iTemplate)
+    filename = 'results/32_3/recog_%d.spikes' %(iTemplate)
     recognition_pops[iTemplate].printSpikes(filename)
 
 p.end()

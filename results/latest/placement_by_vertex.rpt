@@ -1,0 +1,165 @@
+        Placement Information by Vertex
+        ===============================
+
+Generated: Sat Nov  8 17:54:20 2014 for target machine 'spinn-3'
+
+**** Vertex: 'Monitor'
+Model: AppMonitor
+Pop sz: 1
+Sub-vertices: 
+  Slice 0:0 (1 atoms) on core (0, 0, 1) 
+
+**** Vertex: 'Input'
+Model: IF_curr_exp
+Pop sz: 1024
+Sub-vertices: 
+  Slice 0:254 (255 atoms) on core (0, 0, 2) 
+  Slice 255:509 (255 atoms) on core (0, 0, 3) 
+  Slice 510:764 (255 atoms) on core (0, 0, 4) 
+  Slice 765:1019 (255 atoms) on core (0, 0, 5) 
+  Slice 1020:1023 (4 atoms) on core (0, 0, 6) 
+
+**** Vertex: 'Convolutoin_0'
+Model: IF_curr_exp
+Pop sz: 784
+Sub-vertices: 
+  Slice 0:254 (255 atoms) on core (0, 0, 7) 
+  Slice 255:509 (255 atoms) on core (0, 0, 8) 
+  Slice 510:764 (255 atoms) on core (0, 0, 9) 
+  Slice 765:783 (19 atoms) on core (0, 0, 10) 
+
+**** Vertex: 'Convolutoin_1'
+Model: IF_curr_exp
+Pop sz: 784
+Sub-vertices: 
+  Slice 0:254 (255 atoms) on core (0, 0, 11) 
+  Slice 255:509 (255 atoms) on core (0, 0, 12) 
+  Slice 510:764 (255 atoms) on core (0, 0, 13) 
+  Slice 765:783 (19 atoms) on core (0, 0, 14) 
+
+**** Vertex: 'Convolutoin_2'
+Model: IF_curr_exp
+Pop sz: 784
+Sub-vertices: 
+  Slice 0:254 (255 atoms) on core (0, 0, 15) 
+  Slice 255:509 (255 atoms) on core (0, 0, 16) 
+  Slice 510:764 (255 atoms) on core (1, 0, 1) 
+  Slice 765:783 (19 atoms) on core (1, 0, 2) 
+
+**** Vertex: 'Convolutoin_3'
+Model: IF_curr_exp
+Pop sz: 784
+Sub-vertices: 
+  Slice 0:254 (255 atoms) on core (1, 0, 3) 
+  Slice 255:509 (255 atoms) on core (1, 0, 4) 
+  Slice 510:764 (255 atoms) on core (1, 0, 5) 
+  Slice 765:783 (19 atoms) on core (1, 0, 6) 
+
+**** Vertex: 'pool_integrate'
+Model: IF_curr_exp
+Pop sz: 784
+Sub-vertices: 
+  Slice 0:254 (255 atoms) on core (1, 0, 7) 
+  Slice 255:509 (255 atoms) on core (1, 0, 8) 
+  Slice 510:764 (255 atoms) on core (1, 0, 9) 
+  Slice 765:783 (19 atoms) on core (1, 0, 10) 
+
+**** Vertex: 'recognition_0'
+Model: IF_curr_exp
+Pop sz: 196
+Sub-vertices: 
+  Slice 0:195 (196 atoms) on core (1, 0, 11) 
+
+**** Vertex: 'recognition_1'
+Model: IF_curr_exp
+Pop sz: 196
+Sub-vertices: 
+  Slice 0:195 (196 atoms) on core (1, 0, 12) 
+
+**** Vertex: 'recognition_2'
+Model: IF_curr_exp
+Pop sz: 196
+Sub-vertices: 
+  Slice 0:195 (196 atoms) on core (1, 0, 13) 
+
+**** Vertex: 'recognition_3'
+Model: IF_curr_exp
+Pop sz: 196
+Sub-vertices: 
+  Slice 0:195 (196 atoms) on core (1, 0, 14) 
+
+**** Vertex: 'recognition_4'
+Model: IF_curr_exp
+Pop sz: 196
+Sub-vertices: 
+  Slice 0:195 (196 atoms) on core (1, 0, 15) 
+
+**** Vertex: 'retina_pop'
+Model: SpikeSourceArray
+Pop sz: 16384
+Sub-vertices: 
+  Slice 0:255 (256 atoms) on core (1, 0, 16) 
+  Slice 256:511 (256 atoms) on core (1, 1, 1) 
+  Slice 512:767 (256 atoms) on core (1, 1, 2) 
+  Slice 768:1023 (256 atoms) on core (1, 1, 3) 
+  Slice 1024:1279 (256 atoms) on core (1, 1, 4) 
+  Slice 1280:1535 (256 atoms) on core (1, 1, 5) 
+  Slice 1536:1791 (256 atoms) on core (1, 1, 6) 
+  Slice 1792:2047 (256 atoms) on core (1, 1, 7) 
+  Slice 2048:2303 (256 atoms) on core (1, 1, 8) 
+  Slice 2304:2559 (256 atoms) on core (1, 1, 9) 
+  Slice 2560:2815 (256 atoms) on core (1, 1, 10) 
+  Slice 2816:3071 (256 atoms) on core (1, 1, 11) 
+  Slice 3072:3327 (256 atoms) on core (1, 1, 12) 
+  Slice 3328:3583 (256 atoms) on core (1, 1, 13) 
+  Slice 3584:3839 (256 atoms) on core (1, 1, 14) 
+  Slice 3840:4095 (256 atoms) on core (1, 1, 15) 
+  Slice 4096:4351 (256 atoms) on core (1, 1, 16) 
+  Slice 4352:4607 (256 atoms) on core (0, 1, 1) 
+  Slice 4608:4863 (256 atoms) on core (0, 1, 2) 
+  Slice 4864:5119 (256 atoms) on core (0, 1, 3) 
+  Slice 5120:5375 (256 atoms) on core (0, 1, 4) 
+  Slice 5376:5631 (256 atoms) on core (0, 1, 5) 
+  Slice 5632:5887 (256 atoms) on core (0, 1, 6) 
+  Slice 5888:6143 (256 atoms) on core (0, 1, 7) 
+  Slice 6144:6399 (256 atoms) on core (0, 1, 8) 
+  Slice 6400:6655 (256 atoms) on core (0, 1, 9) 
+  Slice 6656:6911 (256 atoms) on core (0, 1, 10) 
+  Slice 6912:7167 (256 atoms) on core (0, 1, 11) 
+  Slice 7168:7423 (256 atoms) on core (0, 1, 12) 
+  Slice 7424:7679 (256 atoms) on core (0, 1, 13) 
+  Slice 7680:7935 (256 atoms) on core (0, 1, 14) 
+  Slice 7936:8191 (256 atoms) on core (0, 1, 15) 
+  Slice 8192:8447 (256 atoms) on core (0, 1, 16) 
+  Slice 8448:8703 (256 atoms) on core (2, 0, 1) 
+  Slice 8704:8959 (256 atoms) on core (2, 0, 2) 
+  Slice 8960:9215 (256 atoms) on core (2, 0, 3) 
+  Slice 9216:9471 (256 atoms) on core (2, 0, 4) 
+  Slice 9472:9727 (256 atoms) on core (2, 0, 5) 
+  Slice 9728:9983 (256 atoms) on core (2, 0, 6) 
+  Slice 9984:10239 (256 atoms) on core (2, 0, 7) 
+  Slice 10240:10495 (256 atoms) on core (2, 0, 8) 
+  Slice 10496:10751 (256 atoms) on core (2, 0, 9) 
+  Slice 10752:11007 (256 atoms) on core (2, 0, 10) 
+  Slice 11008:11263 (256 atoms) on core (2, 0, 11) 
+  Slice 11264:11519 (256 atoms) on core (2, 0, 12) 
+  Slice 11520:11775 (256 atoms) on core (2, 0, 13) 
+  Slice 11776:12031 (256 atoms) on core (2, 0, 14) 
+  Slice 12032:12287 (256 atoms) on core (2, 0, 15) 
+  Slice 12288:12543 (256 atoms) on core (2, 0, 16) 
+  Slice 12544:12799 (256 atoms) on core (2, 1, 1) 
+  Slice 12800:13055 (256 atoms) on core (2, 1, 2) 
+  Slice 13056:13311 (256 atoms) on core (2, 1, 3) 
+  Slice 13312:13567 (256 atoms) on core (2, 1, 4) 
+  Slice 13568:13823 (256 atoms) on core (2, 1, 5) 
+  Slice 13824:14079 (256 atoms) on core (2, 1, 6) 
+  Slice 14080:14335 (256 atoms) on core (2, 1, 7) 
+  Slice 14336:14591 (256 atoms) on core (2, 1, 8) 
+  Slice 14592:14847 (256 atoms) on core (2, 1, 9) 
+  Slice 14848:15103 (256 atoms) on core (2, 1, 10) 
+  Slice 15104:15359 (256 atoms) on core (2, 1, 11) 
+  Slice 15360:15615 (256 atoms) on core (2, 1, 12) 
+  Slice 15616:15871 (256 atoms) on core (2, 1, 13) 
+  Slice 15872:16127 (256 atoms) on core (2, 1, 14) 
+  Slice 16128:16383 (256 atoms) on core (2, 1, 15) 
+

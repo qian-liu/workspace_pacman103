@@ -1,0 +1,112 @@
+        Memory Usage by Core
+        ====================
+
+Generated: Sat Nov  8 17:54:20 2014 for target machine 'spinn-3'
+
+SDRAM requirements for core (0,0,1) is 0 KB
+SDRAM requirements for core (0,0,2) is 748 KB
+SDRAM requirements for core (0,0,3) is 748 KB
+SDRAM requirements for core (0,0,4) is 748 KB
+SDRAM requirements for core (0,0,5) is 748 KB
+SDRAM requirements for core (0,0,6) is 735 KB
+SDRAM requirements for core (0,0,7) is 167 KB
+SDRAM requirements for core (0,0,8) is 167 KB
+SDRAM requirements for core (0,0,9) is 167 KB
+SDRAM requirements for core (0,0,10) is 58 KB
+SDRAM requirements for core (0,0,11) is 167 KB
+SDRAM requirements for core (0,0,12) is 167 KB
+SDRAM requirements for core (0,0,13) is 167 KB
+SDRAM requirements for core (0,0,14) is 58 KB
+SDRAM requirements for core (0,0,15) is 167 KB
+SDRAM requirements for core (0,0,16) is 167 KB
+SDRAM requirements for core (1,0,1) is 167 KB
+SDRAM requirements for core (1,0,2) is 58 KB
+SDRAM requirements for core (1,0,3) is 167 KB
+SDRAM requirements for core (1,0,4) is 167 KB
+SDRAM requirements for core (1,0,5) is 167 KB
+SDRAM requirements for core (1,0,6) is 58 KB
+SDRAM requirements for core (1,0,7) is 409 KB
+SDRAM requirements for core (1,0,8) is 409 KB
+SDRAM requirements for core (1,0,9) is 409 KB
+SDRAM requirements for core (1,0,10) is 396 KB
+SDRAM requirements for core (1,0,11) is 814 KB
+SDRAM requirements for core (1,0,12) is 814 KB
+SDRAM requirements for core (1,0,13) is 814 KB
+SDRAM requirements for core (1,0,14) is 814 KB
+SDRAM requirements for core (1,0,15) is 814 KB
+SDRAM requirements for core (1,0,16) is 2 KB
+SDRAM requirements for core (1,1,1) is 1 KB
+SDRAM requirements for core (1,1,2) is 1 KB
+SDRAM requirements for core (1,1,3) is 1 KB
+SDRAM requirements for core (1,1,4) is 2 KB
+SDRAM requirements for core (1,1,5) is 5 KB
+SDRAM requirements for core (1,1,6) is 1 KB
+SDRAM requirements for core (1,1,7) is 0 KB
+SDRAM requirements for core (1,1,8) is 2 KB
+SDRAM requirements for core (1,1,9) is 6 KB
+SDRAM requirements for core (1,1,10) is 12 KB
+SDRAM requirements for core (1,1,11) is 20 KB
+SDRAM requirements for core (1,1,12) is 33 KB
+SDRAM requirements for core (1,1,13) is 53 KB
+SDRAM requirements for core (1,1,14) is 48 KB
+SDRAM requirements for core (1,1,15) is 60 KB
+SDRAM requirements for core (1,1,16) is 59 KB
+SDRAM requirements for core (0,1,1) is 63 KB
+SDRAM requirements for core (0,1,2) is 65 KB
+SDRAM requirements for core (0,1,3) is 67 KB
+SDRAM requirements for core (0,1,4) is 71 KB
+SDRAM requirements for core (0,1,5) is 75 KB
+SDRAM requirements for core (0,1,6) is 77 KB
+SDRAM requirements for core (0,1,7) is 91 KB
+SDRAM requirements for core (0,1,8) is 94 KB
+SDRAM requirements for core (0,1,9) is 91 KB
+SDRAM requirements for core (0,1,10) is 94 KB
+SDRAM requirements for core (0,1,11) is 94 KB
+SDRAM requirements for core (0,1,12) is 92 KB
+SDRAM requirements for core (0,1,13) is 94 KB
+SDRAM requirements for core (0,1,14) is 103 KB
+SDRAM requirements for core (0,1,15) is 102 KB
+SDRAM requirements for core (0,1,16) is 106 KB
+SDRAM requirements for core (2,0,1) is 116 KB
+SDRAM requirements for core (2,0,2) is 116 KB
+SDRAM requirements for core (2,0,3) is 116 KB
+SDRAM requirements for core (2,0,4) is 115 KB
+SDRAM requirements for core (2,0,5) is 116 KB
+SDRAM requirements for core (2,0,6) is 116 KB
+SDRAM requirements for core (2,0,7) is 107 KB
+SDRAM requirements for core (2,0,8) is 109 KB
+SDRAM requirements for core (2,0,9) is 115 KB
+SDRAM requirements for core (2,0,10) is 113 KB
+SDRAM requirements for core (2,0,11) is 108 KB
+SDRAM requirements for core (2,0,12) is 102 KB
+SDRAM requirements for core (2,0,13) is 106 KB
+SDRAM requirements for core (2,0,14) is 91 KB
+SDRAM requirements for core (2,0,15) is 73 KB
+SDRAM requirements for core (2,0,16) is 67 KB
+SDRAM requirements for core (2,1,1) is 56 KB
+SDRAM requirements for core (2,1,2) is 48 KB
+SDRAM requirements for core (2,1,3) is 42 KB
+SDRAM requirements for core (2,1,4) is 39 KB
+SDRAM requirements for core (2,1,5) is 36 KB
+SDRAM requirements for core (2,1,6) is 26 KB
+SDRAM requirements for core (2,1,7) is 15 KB
+SDRAM requirements for core (2,1,8) is 9 KB
+SDRAM requirements for core (2,1,9) is 4 KB
+SDRAM requirements for core (2,1,10) is 5 KB
+SDRAM requirements for core (2,1,11) is 9 KB
+SDRAM requirements for core (2,1,12) is 3 KB
+SDRAM requirements for core (2,1,13) is 4 KB
+SDRAM requirements for core (2,1,14) is 2 KB
+SDRAM requirements for core (2,1,15) is 4 KB
+**** Chip: (2, 1) has total memory usage of 310 KB out of a max of 119 MB 
+
+**** Chip: (2, 0) has total memory usage of 1691 KB out of a max of 119 MB 
+
+**** Chip: (1, 0) has total memory usage of 6485 KB out of a max of 119 MB 
+
+**** Chip: (1, 1) has total memory usage of 310 KB out of a max of 119 MB 
+
+**** Chip: (0, 0) has total memory usage of 5185 KB out of a max of 119 MB 
+
+**** Chip: (0, 1) has total memory usage of 1386 KB out of a max of 119 MB 
+

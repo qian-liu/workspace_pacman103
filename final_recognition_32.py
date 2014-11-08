@@ -19,7 +19,7 @@ from math import *
 from retinaFunc import *
 
 #Define Simulation Paras
-runtime = 33000 # just for gesture single
+runtime = 39000 # just for gesture single
 num_per_core = 256
 window_time = 5000
 #INIT pacman103
@@ -45,7 +45,7 @@ for i in range(source_Num):
 '''
 
 #-------------------4th Layer on SpiNNaker-----------------------------------
-# pool_integrate 36 * 36 (pooling_out_size) --> recogntion_pops 16 * 16
+# pool_integrate 28 * 28 (pooling_out_size) --> recogntion_pops 14 * 14
 
 #Define network paras
 
@@ -53,7 +53,7 @@ num_templates = 5
 templates_names = ['fist', 'one', 'two', 'hand', 'thumb']
 templates_file = 'template_32.mat'
 #template_scale = 0.2
-template_scale = [0.18, 0.2, 0.4, 0.18, 0.11] * 3
+template_scale = [0.12, 0.2, 0.15, 0.15, 0.08] 
 recognition_pops = []
 recognition_size = 14
 cell_recognition = { 'tau_m' : 20, 'v_init'  : -75, 'i_offset'  : 0,
@@ -70,7 +70,8 @@ for iTemplate in range (0, num_templates):
                        label="recognition_%d" % ( iTemplate) )  ) # Label
 
 pool_integrate = []
-source_Num = source_Num /2
+source_Num = source_Num /2 + 1
+print 'source_Num: ', source_Num
 for source_count in range (source_Num):
     pool_integrate.append( p.Population(integrate_size * integrate_size, p.SpikeSourceArray, {'spike_times': spikeTrains[source_count] }, label='pool_integrate') )
     pool_integrate[source_count].record()
@@ -93,10 +94,10 @@ p.run(runtime)
 
 # write spikes out to files
 for source_count in range (source_Num):
-    filename = 'results/32/integrate_%d.spikes' %(source_count+1)
+    filename = 'results/321/integrate_%d.spikes' %(source_count+1)
     pool_integrate[source_count].printSpikes(filename)
 for iTemplate in range (0, num_templates):
-    filename = 'results/32/recog_%d.spikes' %(iTemplate)
+    filename = 'results/321/recog_%d.spikes' %(iTemplate)
     recognition_pops[iTemplate].printSpikes(filename)
 
 p.end()

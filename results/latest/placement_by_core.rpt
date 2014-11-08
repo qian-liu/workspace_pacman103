@@ -1,0 +1,403 @@
+        Placement Information by Core
+        =============================
+
+Generated: Sat Nov  8 17:54:20 2014 for target machine 'spinn-3'
+
+**** Chip: (2, 1)
+Application cores: 16
+  Processor 1: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 12544:12799 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 2: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 12800:13055 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 3: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 13056:13311 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 4: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 13312:13567 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 5: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 13568:13823 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 6: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 13824:14079 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 7: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 14080:14335 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 8: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 14336:14591 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 9: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 14592:14847 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 10: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 14848:15103 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 11: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 15104:15359 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 12: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 15360:15615 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 13: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 15616:15871 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 14: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 15872:16127 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 15: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 16128:16383 (256 atoms)
+               Model: SpikeSourceArray
+
+
+**** Chip: (2, 0)
+Application cores: 16
+  Processor 1: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 8448:8703 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 2: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 8704:8959 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 3: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 8960:9215 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 4: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 9216:9471 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 5: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 9472:9727 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 6: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 9728:9983 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 7: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 9984:10239 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 8: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 10240:10495 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 9: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 10496:10751 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 10: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 10752:11007 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 11: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 11008:11263 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 12: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 11264:11519 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 13: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 11520:11775 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 14: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 11776:12031 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 15: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 12032:12287 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 16: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 12288:12543 (256 atoms)
+               Model: SpikeSourceArray
+
+
+**** Chip: (1, 0)
+Application cores: 16
+  Processor 1: Vertex: 'Convolutoin_2', pop sz: 784
+               Slice on this core: 510:764 (255 atoms)
+               Model: IF_curr_exp
+
+  Processor 2: Vertex: 'Convolutoin_2', pop sz: 784
+               Slice on this core: 765:783 (19 atoms)
+               Model: IF_curr_exp
+
+  Processor 3: Vertex: 'Convolutoin_3', pop sz: 784
+               Slice on this core: 0:254 (255 atoms)
+               Model: IF_curr_exp
+
+  Processor 4: Vertex: 'Convolutoin_3', pop sz: 784
+               Slice on this core: 255:509 (255 atoms)
+               Model: IF_curr_exp
+
+  Processor 5: Vertex: 'Convolutoin_3', pop sz: 784
+               Slice on this core: 510:764 (255 atoms)
+               Model: IF_curr_exp
+
+  Processor 6: Vertex: 'Convolutoin_3', pop sz: 784
+               Slice on this core: 765:783 (19 atoms)
+               Model: IF_curr_exp
+
+  Processor 7: Vertex: 'pool_integrate', pop sz: 784
+               Slice on this core: 0:254 (255 atoms)
+               Model: IF_curr_exp
+
+  Processor 8: Vertex: 'pool_integrate', pop sz: 784
+               Slice on this core: 255:509 (255 atoms)
+               Model: IF_curr_exp
+
+  Processor 9: Vertex: 'pool_integrate', pop sz: 784
+               Slice on this core: 510:764 (255 atoms)
+               Model: IF_curr_exp
+
+  Processor 10: Vertex: 'pool_integrate', pop sz: 784
+               Slice on this core: 765:783 (19 atoms)
+               Model: IF_curr_exp
+
+  Processor 11: Vertex: 'recognition_0', pop sz: 196
+               Slice on this core: 0:195 (196 atoms)
+               Model: IF_curr_exp
+
+  Processor 12: Vertex: 'recognition_1', pop sz: 196
+               Slice on this core: 0:195 (196 atoms)
+               Model: IF_curr_exp
+
+  Processor 13: Vertex: 'recognition_2', pop sz: 196
+               Slice on this core: 0:195 (196 atoms)
+               Model: IF_curr_exp
+
+  Processor 14: Vertex: 'recognition_3', pop sz: 196
+               Slice on this core: 0:195 (196 atoms)
+               Model: IF_curr_exp
+
+  Processor 15: Vertex: 'recognition_4', pop sz: 196
+               Slice on this core: 0:195 (196 atoms)
+               Model: IF_curr_exp
+
+  Processor 16: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 0:255 (256 atoms)
+               Model: SpikeSourceArray
+
+
+**** Chip: (1, 1)
+Application cores: 16
+  Processor 1: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 256:511 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 2: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 512:767 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 3: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 768:1023 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 4: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 1024:1279 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 5: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 1280:1535 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 6: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 1536:1791 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 7: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 1792:2047 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 8: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 2048:2303 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 9: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 2304:2559 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 10: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 2560:2815 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 11: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 2816:3071 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 12: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 3072:3327 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 13: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 3328:3583 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 14: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 3584:3839 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 15: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 3840:4095 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 16: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 4096:4351 (256 atoms)
+               Model: SpikeSourceArray
+
+
+**** Chip: (0, 0)
+Application cores: 16
+  Processor 1: Vertex: 'Monitor', pop sz: 1
+               Slice on this core: 0:0 (1 atoms)
+               Model: AppMonitor
+
+  Processor 2: Vertex: 'Input', pop sz: 1024
+               Slice on this core: 0:254 (255 atoms)
+               Model: IF_curr_exp
+
+  Processor 3: Vertex: 'Input', pop sz: 1024
+               Slice on this core: 255:509 (255 atoms)
+               Model: IF_curr_exp
+
+  Processor 4: Vertex: 'Input', pop sz: 1024
+               Slice on this core: 510:764 (255 atoms)
+               Model: IF_curr_exp
+
+  Processor 5: Vertex: 'Input', pop sz: 1024
+               Slice on this core: 765:1019 (255 atoms)
+               Model: IF_curr_exp
+
+  Processor 6: Vertex: 'Input', pop sz: 1024
+               Slice on this core: 1020:1023 (4 atoms)
+               Model: IF_curr_exp
+
+  Processor 7: Vertex: 'Convolutoin_0', pop sz: 784
+               Slice on this core: 0:254 (255 atoms)
+               Model: IF_curr_exp
+
+  Processor 8: Vertex: 'Convolutoin_0', pop sz: 784
+               Slice on this core: 255:509 (255 atoms)
+               Model: IF_curr_exp
+
+  Processor 9: Vertex: 'Convolutoin_0', pop sz: 784
+               Slice on this core: 510:764 (255 atoms)
+               Model: IF_curr_exp
+
+  Processor 10: Vertex: 'Convolutoin_0', pop sz: 784
+               Slice on this core: 765:783 (19 atoms)
+               Model: IF_curr_exp
+
+  Processor 11: Vertex: 'Convolutoin_1', pop sz: 784
+               Slice on this core: 0:254 (255 atoms)
+               Model: IF_curr_exp
+
+  Processor 12: Vertex: 'Convolutoin_1', pop sz: 784
+               Slice on this core: 255:509 (255 atoms)
+               Model: IF_curr_exp
+
+  Processor 13: Vertex: 'Convolutoin_1', pop sz: 784
+               Slice on this core: 510:764 (255 atoms)
+               Model: IF_curr_exp
+
+  Processor 14: Vertex: 'Convolutoin_1', pop sz: 784
+               Slice on this core: 765:783 (19 atoms)
+               Model: IF_curr_exp
+
+  Processor 15: Vertex: 'Convolutoin_2', pop sz: 784
+               Slice on this core: 0:254 (255 atoms)
+               Model: IF_curr_exp
+
+  Processor 16: Vertex: 'Convolutoin_2', pop sz: 784
+               Slice on this core: 255:509 (255 atoms)
+               Model: IF_curr_exp
+
+
+**** Chip: (0, 1)
+Application cores: 16
+  Processor 1: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 4352:4607 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 2: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 4608:4863 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 3: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 4864:5119 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 4: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 5120:5375 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 5: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 5376:5631 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 6: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 5632:5887 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 7: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 5888:6143 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 8: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 6144:6399 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 9: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 6400:6655 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 10: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 6656:6911 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 11: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 6912:7167 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 12: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 7168:7423 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 13: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 7424:7679 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 14: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 7680:7935 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 15: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 7936:8191 (256 atoms)
+               Model: SpikeSourceArray
+
+  Processor 16: Vertex: 'retina_pop', pop sz: 16384
+               Slice on this core: 8192:8447 (256 atoms)
+               Model: SpikeSourceArray
+
+

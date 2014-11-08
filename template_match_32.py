@@ -1,0 +1,155 @@
+#!/usr/bin/python
+"""
+Author: Qian Liu, SpiNNaker Group, The University of Manchester
+This program provides a gesture recognition colvolutional neural network. 
+
+This test requires:
+ - an FPGA/robot MC translating the AER sensor events to MC packets (see the application note by Luis Plana at http://solem.cs.man.ac.uk/documentation/spinn-app-8.pdf)
+ - the visualiser in tools/visualiser
+
+"""
+
+
+import pyNN.spiNNaker as p
+import numpy, pylab, random, sys
+import time
+import datetime as dt
+from math import *
+# import defined retina Functions from another python file
+from retinaFunc import *
+print 'Simulation on!: {}\n'.format(dt.datetime.now())
+#Define Simulation Paras
+runtime = 10000
+num_per_core = 256
+
+#INIT pacman103
+p.setup(timestep=1.0, min_delay = 1.0, max_delay = 32.0)
+p.set_number_of_neurons_per_core('IF_curr_exp', num_per_core)      # this will set one population per core
+
+#external stuff: population requiremenets
+connected_chip_coords = {'x': 0, 'y': 0}
+virtual_chip_coords = {'x': 0, 'y': 5}
+link = 4
+
+# ------------------1st Layer on SpiNNaker-----------------------------------
+# Retina 128 * 128 --> Input 32 * 32
+
+#Define network paras
+retina_size = 128 # retina from the FPGA
+input_size = 32 # Fisrt layer on SpiNNaker to combine both ON and OFF inputs
+input_weights = 2 #6
+cell_input = { 'tau_m' : 20, 'v_init'  : -65, 'i_offset'  : 0,
+    'v_rest'    : -65,  'v_reset'    : -65, 'v_thresh'   : -50,
+    'tau_syn_E' : 5,   'tau_syn_I'  : 5,  'tau_refrac' : 1}
+
+input_pop = p.Population(input_size * input_size,         # size
+                       p.IF_curr_exp,   # Neuron Type
+                       cell_input,   # Neuron Parameters
+                       label="Input") # Label
+#-------------------2nd Layer on SpiNNaker-----------------------------------
+# Input 32 * 32 --> convoled (Gabor Filters) 28 * 28 
+
+#Define network paras
+gabor_size = 5
+gabor_scale = 0.8
+gabor_freq = 4
+num_orient = 4
+weight_scale = 2
+convolved_pops = []
+
+cell_convolve = { 'tau_m' : 20, 'v_init'  : -75, 'i_offset'  : 0,
+    'v_rest'    : -75,  'v_reset'    : -75, 'v_thresh'   : -50,
+    'tau_syn_E' : 9,   'tau_syn_I'  : 15,  'tau_refrac' : 1}
+
+for iOrient in range (0, num_orient):
+        
+    gabor_orient = iOrient / float(num_orient) * pi
+    gabor_weight = gaborFilter(gabor_size, gabor_orient, gabor_scale, gabor_freq) # generate a gabor filter with given parameters
+    gabor_weight = [[weight_scale * x for x in y] for y in gabor_weight] # play with weight_scale to move from ANN simulation to Spiking Neural Networks
+    exci_list, inhi_list, convolved_size = convConnector2(input_size, gabor_weight, 1, 1)  #split the connections into exci and inhi connections
+    convolved_pops.append ( p.Population (convolved_size * convolved_size,      # Neuron Size
+                       p.IF_curr_exp,   # Neuron Type
+                       cell_input,
+                       #cell_convolve,   # Neuron Parameters
+                       label="Convolutoin_%d" % (iOrient)) ) # Label
+
+    for i in range(0, len(exci_list)):
+        p.Projection(input_pop, convolved_pops[iOrient], p.FromListConnector(exci_list[i]), target='excitatory')
+                
+    for i in range(0, len(inhi_list)):
+        p.Projection(input_pop, convolved_pops[iOrient], p.FromListConnector(inhi_list[i]), target='inhibitory')
+
+print "convolved_size:", convolved_size
+#-------------------3rd Layer Pooling -----------------------------------
+# convoled 28 * 28 --> pool_integrate 28 * 28
+
+weights_pool = 4.5
+pool_integrate = p.Population(convolved_size * convolved_size,         # size
+                               p.IF_curr_exp,   # Neuron Type
+                               cell_input,
+                               #cell_convolve,   # Neuron Parameters
+                               label="pool_integrate") 
+                               
+for iOrient in range (0, num_orient):
+    p.Projection(convolved_pops[iOrient], pool_integrate, p.OneToOneConnector(weights = weights_pool, delays = 1), target='excitatory')
+
+#-------------------4th Layer on SpiNNaker-----------------------------------
+# pool_integrate 28 * 28 (pooling_out_size) --> recogntion_pops 14 * 14
+
+#Define network paras
+
+num_templates = 5
+templates_names = ['fist', 'one', 'two', 'hand', 'thumb']
+templates_file = 'template_32.mat'
+#template_scale = 0.2
+template_scale = [0.12, 0.2, 0.15, 0.15, 0.08] 
+recognition_pops = []
+recognition_size = 14
+cell_recognition = { 'tau_m' : 20, 'v_init'  : -75, 'i_offset'  : 0,
+    'v_rest'    : -75,  'v_reset'    : -75, 'v_thresh'   : -60,
+    'tau_syn_E' : 5,   'tau_syn_I'  : 10,  'tau_refrac' : 1}
+
+for iTemplate in range (0, num_templates):
+    template = load_template(iTemplate, templates_names, templates_file ) # lading tempaltes
+    template_weight = [[template_scale[iTemplate] * x for x in y] for y in template] # play with weight_scale to move from ANN simulation to Spiking Neural Networks
+    recognition_pops.append ( p.Population (recognition_size * recognition_size,         # size
+                       p.IF_curr_exp,   # Neuron Type
+                       cell_recognition,   # Neuron Parameters
+                       label="recognition_%d" % ( iTemplate) )  ) # Label
+
+    exci_list, inhi_list, recognition_size = convConnector(convolved_size, template_weight, 1, 1) #generate the weights for the template convolution
+    p.Projection(pool_integrate, recognition_pops[iTemplate], p.FromListConnector(exci_list), target='excitatory')
+    p.Projection(pool_integrate, recognition_pops[iTemplate], p.FromListConnector(inhi_list), target='inhibitory')
+
+print "recognition_size:", recognition_size
+
+
+
+# -----------------First thing last, the spike source array since it changes according to the spike trains-----------
+
+spikeTrains, source_Num = load_inputSpikes2('recorded_data_for_spinnaker/all.mat', 'retinaPop', retina_size)
+retina_pop = []
+print "source_Num:", source_Num
+#for i in range(source_Num):
+for i in range(1):
+    pop = p.Population(retina_size * retina_size, p.SpikeSourceArray, {'spike_times': spikeTrains[i] }, label='retina_pop')
+    retina_pop.append( pop )
+    
+    p.Projection(retina_pop[i], input_pop, p.FromListConnector(subSamplerConnector2D(retina_size, input_size, input_weights, 1)), label='input projection')
+
+input_pop.record()
+pool_integrate.record()
+#recognition_pops[0].record()
+print 'Simulation started... on time: {}\n'.format(dt.datetime.now())
+p.run(runtime)
+
+# write spikes out to files
+filename = 'results/latensy/input.spikes'
+input_pop.printSpikes(filename)
+filename = 'results/latensy/integrate.spikes'
+pool_integrate.printSpikes(filename)
+#filename = 'results/rec_0.spikes'
+#recognition_pops[0].printSpikes(filename)
+
+p.end()
+print 'Simulation end! on time: {}\n'.format(dt.datetime.now())
